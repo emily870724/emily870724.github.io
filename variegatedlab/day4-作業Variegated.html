@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>day4 - Varie Gated</title>
+    <title>day4-VarieGated</title>
     <link rel="stylesheet" href="reset.css">
     <script src="https://kit.fontawesome.com/a54152b54f.js" crossorigin="anonymous"></script>
     <style>
@@ -64,6 +64,21 @@
         .shopping .cart a,.login a{
             color: rgb(119, 115, 115);
             text-decoration: none;
+        }
+        .shopping .cart a{
+            position: relative;
+        }
+        .shopping .cart p{
+            background-color: #faa;
+            color: #fff;
+            width: 16px;
+            height: 14px;
+            font-size: 12px;
+            border-radius: 50%;
+            padding-top: 4px;
+            position: absolute;
+            top: -5px;
+            right: -10px;
         }
         .shopping .search{
             width: 130px;
@@ -211,6 +226,38 @@
         }
         .boon .slider img{
             width: 1200px;
+        }
+        .boon .slider .slider-list{
+            position: absolute;
+            top: 35%;
+            right: 0%;
+            font-size: 18px;
+            list-style-type: none;
+        }
+        .boon .slider .slider-item{
+            padding-top: 20px;
+        }
+        .boon .slider .slider-item p{
+            padding-left: 25px;
+            padding-bottom: 5px;
+        }
+        .boon .slider .slider-line {
+            border-bottom:3px solid #000;
+            position: absolute;
+            right: -50px;
+            width: 50px;
+            opacity: 0;
+        }
+        .boon .slider .slider1 .slider-line{
+            border-bottom:3px solid #000;
+            opacity: 100%;
+            right: 0px;
+        }
+        .boon .slider .slider-item:hover .slider-line{
+            border-bottom:3px solid #000;
+            transform: translateX(-50px);
+            transition:.3s;
+            opacity: 100%;
         }
         .boon .slider-sale{
             position: absolute;
@@ -501,7 +548,7 @@
         }
         .popular .popular-item{
             width: 270px;
-            height: 480px;
+            height: 520px;
             line-height: 1.5;
             position: relative;
         }
@@ -542,9 +589,19 @@
             top: 20px; 
             right: 0;  
         }
+        .popular .popular-item .score{
+            font-size: 12px;
+        }
+        .popular .popular-item .points{
+            color:gold;
+        }
+        .popular .popular-item .nopoints{
+            color: #aaa;
+        }
         .popular .popular-item:hover p,
         .popular .popular-item:hover h3,
-        .popular .popular-item:hover h4{
+        .popular .popular-item:hover h4,
+        .popular .popular-item:hover .score{
             transform: translateX(-100px);
             transition:.3s;
             opacity: 0;
@@ -845,6 +902,7 @@
                 <div class="cart">
                     <a href="#">
                         <i class="fa-solid fa-cart-shopping"></i>
+                        <p>0</p>
                     </a>
                 </div>
                 <div class="login">
@@ -1180,6 +1238,20 @@
         <div class="boon-content">
             <div class="slider">
                 <img src="slider1.webp" alt="slider1">
+                <div class="slider-list">
+                    <li class="slider-item slider1">
+                        <p>01</p>
+                        <div class="slider-line"></div>
+                    </li>
+                    <li class="slider-item slider2">
+                        <p>02</p>
+                        <div class="slider-line"></div>
+                    </li>
+                    <li class="slider-item slider3">
+                        <p>03</p>
+                        <div class="slider-line"></div>
+                    </li>
+                </div>
                 <div class="slider-sale">
                     <p>-20% SALE</p>
                 </div>
@@ -1377,6 +1449,13 @@
                     <p>TROUSERS-SHORTS BLAZERS NEW ARRIVAL</p>
                     <h3>FAUX LEATHER JACKET WITH FLOWING LAPELS</h3>
                     <h4>96.00$</h4>
+                    <div class="score">
+                        <i class="fa-solid fa-star points"></i>
+                        <i class="fa-solid fa-star points"></i>
+                        <i class="fa-solid fa-star points"></i>
+                        <i class="fa-solid fa-star points"></i>
+                        <i class="fa-solid fa-star nopoints"></i>
+                    </div>
                     <div class="select" href="#">SELECT OPTIONS</div>
                 </a>
                 <a href="#" class="popular-item">
@@ -1414,6 +1493,13 @@
                     <p>TROUSERS-SHORTS DRESSES</p>
                     <h3>POLKA DOT SHIRT DRESS</h3>
                     <h4>66.00$</h4>
+                    <div class="score">
+                        <i class="fa-solid fa-star points"></i>
+                        <i class="fa-solid fa-star points"></i>
+                        <i class="fa-solid fa-star nopoints"></i>
+                        <i class="fa-solid fa-star nopoints"></i>
+                        <i class="fa-solid fa-star nopoints"></i>
+                    </div>
                     <div class="select" href="#">SELECT OPTIONS</div>
                 </a>
                 <a href="#" class="popular-item">
@@ -1449,6 +1535,13 @@
                     <p>TROUSERS-SHORTS DRESSES JUMPSUITS</p>
                     <h3>SUEDE EFFECT DRESS</h3>
                     <h4>89.00$</h4>
+                    <div class="score">
+                        <i class="fa-solid fa-star points"></i>
+                        <i class="fa-solid fa-star points"></i>
+                        <i class="fa-solid fa-star points"></i>
+                        <i class="fa-solid fa-star nopoints"></i>
+                        <i class="fa-solid fa-star nopoints"></i>
+                    </div>
                     <h5>Featured</h5>
                     <div class="select" href="#">SELECT OPTIONS</div>
                 </a>
