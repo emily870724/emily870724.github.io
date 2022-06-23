@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day1 - Profile</title>
+    <style>
+        .profile{
+            margin: auto;
+            width: 90%;
+        }
+        .profile div{
+            display: flex;
+            border: 5px solid #aaa;
+            width: calc(100% - 10px);
+            margin: 10px 0;
+        }
+        #mypic{
+            width: 40%;
+            margin: auto;
+        }
+        #person ul{
+            list-style-type: none;
+            padding-left: 10px;
+        }
+        #img{
+            display: flex;
+            justify-content: center;
+        }
+        #img img{
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <div>
+            <img id="mypic" src="" alt="">
+        </div>
+        <div id="person">
+            <ul>
+                <li id="name"></li>
+                <li id="email"></li>
+                <li id="school"></li>
+                <li id="habbit"></li>
+            </ul>
+        </div>
+        <div id="img">
+            <img id="img1" src="" alt="">
+            <img id="img2" src="" alt="">
+            <img id="img3" src="" alt="">
+        </div>
+    </div>
+    <script>
+        const mypicUrl = "https://scontent.ftpe13-2.fna.fbcdn.net/v/t39.30808-6/250041125_4636926259738195_388099570680980178_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=tUrmfF1Z0YQAX_d-7pw&_nc_ht=scontent.ftpe13-2.fna&oh=00_AT_JCdSdv0w8L21k7Tg9I0SKkEzbkvyf4MO5f3kBAWgf7Q&oe=62B7C771";
+        let mypic = document.getElementById("mypic");
+        // mypic.src =mypicUrl;
+        mypic.setAttribute("src",mypicUrl);
+
+        
+        let person ={
+            name : "阿諭",
+            email : "emily870724ee@gmail.com",
+            school : "Build School",
+            habbits : "小鋼盔、原神"
+        }
+        let name = document.getElementById("name");
+        name.innerText = `姓名 : ${person.name}`;
+        let email = document.getElementById("email");
+        email.innerText = `Email : ${person.email}`;
+        let school = document.getElementById("school");
+        school.innerText = `學校: ${person.school}`;
+        let habbit = document.getElementById("habbit");
+        habbit.innerText = `興趣: ${person.habbits}`;
+        
+
+        const imageArray = [
+            "https://www.avex.com.tw/Upload/pic/20200709_WAYNET_03.jpg", 
+            "https://i01piccdn.sogoucdn.com/875646a0f0f9297c", 
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSdnsk9mO8H6k4FSdREJPHdsGK3K646eJsrg&usqp=CAU"
+        ];
+        let img1 = document.getElementById("img1");
+        img1.setAttribute("src",imageArray[0]);
+        let img2 = document.getElementById("img2");
+        img2.setAttribute("src",imageArray[1]);
+        let img3 = document.getElementById("img3");
+        img3.setAttribute("src",imageArray[2]);
+
+    </script>
+</body>
+</html>
