@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="grid.css">
+    <link rel="stylesheet" href="Sunplant(04).css">
+    <script src="https://kit.fontawesome.com/a54152b54f.js" crossorigin="anonymous"></script>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+    *{
+        font-family: 'Open Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
+    } -->
+    </style>
+</head>
+<body>
+    <a href="#" class="go-top">
+        <i class="fa-solid fa-angle-up"></i>
+    </a>
+    <input type="checkbox" name="" id="menu-switch">
+
+    <header>
+        <div class="menu-switch col-5">
+            <label for="menu-switch" class="switch-line">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <div class="menu-group col-xl-5">
+            <div class="menu-nav">
+                <div class="menu-top">
+                    <div class="switch">
+                        <div class="line">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <span>MENU</span>
+                    </div>
+                    <a href="" class="login">
+                        <i class="fa-solid fa-circle-user"></i>
+                        <span>LOGIN</span>
+                    </a>
+                </div>
+                <ul class="menu-list">
+                    <li class="menu-item home">
+                        <a class="item-title" href="">
+                            <h2>HOME</h2>
+                        </a>
+                        <input type="checkbox" name="" id="home-switch">
+                        <label class="home-switch" for="home-switch">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </label>
+                        <ul class="menu-content">
+                            <li>
+                                <a href="">
+                                    <img src="1.jpg" alt="">
+                                    <h3>HOME1</h3> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="2.jpg" alt="">
+                                    <h3>HOME2</h3> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="3.jpg" alt="">
+                                    <h3>HOME3</h3> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="4.jpg" alt="">
+                                    <h3>HOME4</h3> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="5.jpg" alt="">
+                                    <h3>HOME5</h3> 
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item shop">
+                        <a href="">
+                            <h2>SHOP</h2>
+                        </a>
+                        <input type="checkbox" name="" id="shop-switch">
+                        <label class="shop-switch" for="shop-switch">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </label>
+                        <ul class="menu-content">
+                            <li>
+                                <a href="">
+                                    <h3>SHOP FILTER</h3> 
+                                </a>
+                                <a href="">
+                                    <span>Filter Push Left</span>
+                                </a>
+                                <a href="">
+                                    <span>Filter Colappse</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <h3>SHOP LAYOUT</h3> 
+                                </a>
+                                <a href="">
+                                    <span>Full width</span>
+                                </a>
+                                <a href="">
+                                    <span>Sidebar Left</span> 
+                                </a>
+                                <a href="">
+                                    <span>Sidebar Right</span> 
+                                </a>
+                                <a href="">
+                                    <span>Infinity Scroll</span> 
+                                </a>
+                                <a href="">
+                                    <span>Product List</span> 
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item featured">
+                        <a href="#">
+                            <h2>FEATURED</h2>
+                        </a>
+                        <input type="checkbox" name="" id="featured-switch">
+                        <label class="featured-switch" for="featured-switch">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </label>
+                        <ul class="menu-content">
+                            <li>
+                                <a href="">
+                                    <h3>BLOG LAYOUTS</h3> 
+                                </a>
+                                <a href="">
+                                    <span>Blog Standar No Sidebar</span>
+                                </a>
+                                <a href="">
+                                    <span>Blog Standar Sidebar Left</span>
+                                </a>
+                                <a href="">
+                                    <span>Blog Standar Sidebar Right</span>
+                                </a>
+                                <a href="">
+                                    <span>Blog Grid No Sidebar</span>
+                                </a>
+                                <a href="">
+                                    <span>Blog Grid Sidebar</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <h3>PRODUCT LAYOUT</h3> 
+                                </a>
+                                <a href="">
+                                    <span>Product Large Images</span>
+                                </a>
+                                <a href="">
+                                    <span>Product Extended</span> 
+                                </a>
+                                <a href="">
+                                    <span>Product Gallery</span> 
+                                </a>
+                                <a href="">
+                                    <span>Product Sticky</span> 
+                                </a>
+                                <a href="">
+                                    <span>Product Sidebar</span> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <h3>PRODUCT TYPES</h3> 
+                                </a>
+                                <a href="">
+                                    <span>Variable</span>
+                                </a>
+                                <a href="">
+                                    <span>Video</span> 
+                                </a>
+                                <a href="">
+                                    <span>360 Degree</span> 
+                                </a>
+                                <a href="">
+                                    <span>Affiliate</span> 
+                                </a>
+                                <a href="">
+                                    <span>Simple</span> 
+                                </a>
+                                <a href="">
+                                    <span>Out Of Stock</span> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <h3>SINGLE POST</h3> 
+                                </a>
+                                <a href="">
+                                    <span>Single Post No Sidebar</span>
+                                </a>
+                                <a href="">
+                                    <span>Single Post Sidebar Right</span> 
+                                </a>
+                                <a href="">
+                                    <span>Single Post Sidebar Left</span> 
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item pages">
+                        <a href="#">
+                            <h2>PAGES</h2>
+                        </a>
+                        <input type="checkbox" name="" id="pages-switch">
+                        <label class="pages-switch" for="pages-switch">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </label>
+                        <ul class="menu-content">
+                            <li>
+                                <a href="">
+                                    <h3>About Us</h3> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <h3>Contact Us</h3> 
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <h3>Wishlist</h3> 
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item element">
+                        <a href="#">
+                            <h2>ELEMENT</h2>
+                        </a>
+                        <input type="checkbox" name="" id="element-switch">
+                        <label class="element-switch" for="element-switch">
+                            <i class="fa-solid fa-angle-right"></i>
+                        </label>
+                        <ul class="menu-content">
+                            <li>
+                                <a href="">
+                                    <h3>MAIN STYLE</h3> 
+                                </a>
+                                <a href="">
+                                    <span>No Sidebar</span>
+                                </a>
+                                <a href="">
+                                    <span>Default – Menu right</span>
+                                </a>
+                                <a href="">
+                                    <span>Minimalt</span>
+                                </a>
+                                <a href="">
+                                    <span>Classic</span>
+                                </a>
+                                <a href="">
+                                    <span>Mordern</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <h3>POST FOMAT</h3> 
+                                </a>
+                                <a href="">
+                                    <span>Elementor</span>
+                                </a>
+                                <a href="">
+                                    <span>Logo on menu</span> 
+                                </a>
+                                <a href="">
+                                    <span>Default – Menu Left</span> 
+                                </a>
+                                <a href="">
+                                    <span>Logo in menu</span> 
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <label class="close" for="menu-switch">
+                    <i class="fa-solid fa-x"></i>
+                    <span>CLOSE</span>
+                </label>
+            </div>
+            <label for="menu-switch" class="shadow">
+            </label>
+        </div>
+        <div class="logo col-xl-2 col-2">
+            <h1 class="sr-only">SunPlant</h1>
+            <a href="#"><img src="logo.png" alt="SunPlant"></a>
+        </div>
+        <div class="icon col-xl-5 col-5">
+            <a class="item search" href="">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+            <a class="item login" href="">
+                <i class="fa-solid fa-circle-user"></i>
+            </a>
+            <a class="item basket" href="">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span>0</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="intro">
+        <div class="intro-text">
+            <h2>Collection New<br>Beautiful</h2>
+            <span>from $69</span>
+            <a href="">SHOP NOW</a>
+        </div>
+        <div class="plant-img">
+            <img src="slidesho10-small-1.png" alt="">
+        </div>
+    </div>
+
+    <div class="benefits">
+        <div class="title">
+            <h2>The important benefits of<br>greenery for the environment and health</h2>
+            <div class="sentence">
+                <p>Trees have always been considered as "lungs" of the earth. Planting lots of trees helps provide a great deal of oxygen for us to breathe.</p>
+                <p>On average, one tree can provide enough oxygen for four people. At the same time they also absorb C02, ammonia, S02, .. in the world!</p>
+            </div>
+        </div>
+
+        <div class="benefits-content">
+            <ul>
+                <li>
+                    <h3>Reducing environmental pollution</h3>
+                    <p>Trees have always been considered as "lungs" of the earth.</p>
+                </li>
+                <li>
+                    <h3>Save water and reduce soil erosion</h3>
+                    <p>Trees can slow down the evaporation of water, increasing air humidity.</p>
+                </li>
+                <li>
+                    <h3>Reduce street temperatures</h3>
+                    <p>Planting more trees in densely populated areas will not only make the air there more fresh</p>
+                </li>
+            </ul>
+            <div class="img">
+                <img src="info-v2.jpg" alt="">
+            </div>
+            <ul>
+                <li>
+                    <h3>Energy conservation</h3>
+                    <p>One tree can cool down, cool down 10 rooms</p>
+                </li>
+                <li>
+                    <h3>Prevent ultraviolet influence</h3>
+                    <p>Green trees become shade to block the sunlight from the road</p>
+                </li>
+                <li>
+                    <h3>Improve human health</h3>
+                    <p>Living in a quiet, cool, clean and fresh environment will make your health better</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="staff-pick">
+        <div class="title">
+            <h2>Staff.Pick</h2>
+        </div>
+        <div class="container">
+            <div class="row row-cols-2 row-cols-md-3">
+                <div class="col 1">
+                    <div class="item">
+                        <a href="">
+                            <img src="pic1.jpg" alt="">
+                            <img class="cover" src="cover1.jpg" alt="">
+                            <div class="cover-shadow"></div>
+                        </a>
+                        <div class="icon">
+                            <a href="">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+                        <a href="">
+                            <h3>Sapien Libero</h3>
+                        </a>
+                        <div class="price">
+                            <span>$150.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col 2">
+                    <div class="item">
+                        <div class="sale">Sale</div>
+                        <a href="">
+                            <img src="pic2.jpg" alt="">
+                            <img class="cover" src="cover2.jpg" alt="">
+                            <div class="cover-shadow"></div>
+                        </a>
+                        <div class="icon">
+                            <a href="">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+                        <a href="">
+                            <h3>Fringilla Augue 360</h3>
+                        </a>
+                        <div class="price">
+                            <span class="cost">$200.00</span>
+                            <span>$150.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col 3">
+                    <div class="item">
+                        <div class="sale">Sale</div>
+                        <a href="">
+                            <img src="pic3.jpg" alt="">
+                            <img class="cover" src="cover3.jpg" alt="">
+                            <div class="cover-shadow"></div>
+                        </a>
+                        <div class="icon">
+                            <a href="">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+                        <a href="">
+                            <h3>Faded Short Sleeves Variable</h3>
+                        </a>
+                        <div class="price">
+                            <span class="cost">$200.00</span>
+                            <span>$150.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col 4">
+                    <div class="item">
+                        <a href="">
+                            <img src="pic4.jpg" alt="">
+                            <img class="cover" src="cover4.jpg" alt="">
+                            <div class="cover-shadow"></div>
+                        </a>
+                        <div class="icon">
+                            <a href="">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+                        <a href="">
+                            <h3>Purple Flowers</h3>
+                        </a>
+                        <div class="price">
+                            <span>$180.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col 5">
+                    <div class="item">
+                        <div class="sale">Sold Out</div>
+                        <a href="">
+                            <img src="pic5.jpg" alt="">
+                            <img class="cover" src="cover5.jpg" alt="">
+                            <div class="cover-shadow"></div>
+                        </a>
+                        <div class="icon">
+                            <a href="">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+                        <a href="">
+                            <h3>Adipiscing Cursus Out Of Stock</h3>
+                        </a>
+                        <div class="price">
+                            <span>$450.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col 6">
+                    <div class="item">
+                        <a href="">
+                            <img src="pic6.jpg" alt="">
+                            <img class="cover" src="cover6.jpg" alt="">
+                            <div class="cover-shadow"></div>
+                        </a>
+                        <div class="icon">
+                            <a href="">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+                        <a href="">
+                            <h3>Fringilla Augue</h3>
+                        </a>
+                        <div class="price">
+                            <span>$320.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col 7">
+                    <div class="item">
+                        <a href="">
+                            <img src="pic7.jpg" alt="">
+                            <img class="cover" src="cover7.jpg" alt="">
+                            <div class="cover-shadow"></div>
+                        </a>
+                        <div class="icon">
+                            <a href="">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+                        <a href="">
+                            <h3>Purple Flowers</h3>
+                        </a>
+                        <div class="price">
+                            <span class="cost">$200.00</span>
+                            <span>$150.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col 8">
+                    <div class="item">
+                        <div class="sale">Sale</div>
+                        <a href="">
+                            <img src="pic8.jpg" alt="">
+                            <img class="cover" src="cover8.jpg" alt="">
+                            <div class="cover-shadow"></div>
+                        </a>
+                        <div class="icon">
+                            <a href="">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+                        <a href="">
+                            <h3>Plant</h3>
+                        </a>
+                        <div class="price">
+                            <span class="cost">$200.00</span>
+                            <span>$150.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col 9">
+                    <div class="item">
+                        <a href="">
+                            <img src="pic9.jpg" alt="">
+                            <img class="cover" src="cover9.jpg" alt="">
+                            <div class="cover-shadow"></div>
+                        </a>
+                        <div class="icon">
+                            <a href="">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-cart-shopping"></i>
+                            </a>
+                            <a href="">                            
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+                        <a href="">
+                            <h3>Plant Beautiful</h3>
+                        </a>
+                        <div class="price">
+                            <span>$150.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+    
+    <div class="product">
+        <div class="text">
+            <div class="text-content">
+                <h2>A Number Of Our Products</h2>
+                <p>Pick up all you need to keep your board in optimum condition with Decathlon’s set of surfboard accessories.</p>
+                <a href="">
+                    <span>SHOP NOW</span>
+                </a>
+            </div>
+        </div>
+        <div class="video">
+            <input type="checkbox" name="" id="video-play">
+            <img src="video1.jpg" alt="">
+            <label for="video-play" class="play">
+                <i class="fa-solid fa-play"></i>
+            </label>
+            <label for="video-play" class="background"></label>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/nkhpGC10OVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <div class="shop-ig">
+        <div class="ig-title">
+            <i class="fa-brands fa-instagram"></i>
+            <h3>SHOP INSTAGRAM</h3>
+        </div>
+
+        <div class="ig-group">
+            <div class="ig-item">
+                <a href=""><img src="instagram1.jpg" alt=""></a>
+                <div class="ig-shadow"></div>
+            </div>
+            <div class="ig-item">
+                <a href=""><img src="instagram2.jpg" alt=""></a>
+                <div class="ig-shadow"></div>
+            </div>
+            <div class="ig-item">
+                <a href=""><img src="instagram3.jpg" alt=""></a>
+                <div class="ig-shadow"></div>
+            </div>
+            <div class="ig-item">
+                <a href=""><img src="instagram4.jpg" alt=""></a>
+                <div class="ig-shadow"></div>
+            </div>
+            <div class="ig-item">
+                <a href=""><img src="instagram5.jpg" alt=""></a>
+                <div class="ig-shadow"></div>
+            </div>
+            <div class="ig-item">
+                <a href=""><img src="instagram6.jpg" alt=""></a>
+                <div class="ig-shadow"></div>
+            </div>
+            <div class="ig-item">
+                <a href=""><img src="instagram7.jpg" alt=""></a>
+                <div class="ig-shadow"></div>
+            </div>
+            <div class="ig-item">
+                <a href=""><img src="instagram8.jpg" alt=""></a>
+                <div class="ig-shadow"></div>
+            </div>
+            <div class="ig-item">
+                <a href=""><img src="instagram9.jpg" alt=""></a>
+                <div class="ig-shadow"></div>
+            </div>
+            <div class="ig-item">
+                <a href=""><img src="instagram10.jpg" alt=""></a>
+                <div class="ig-shadow"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <img src="logo.png" alt="">
+        <div class="text">
+            <a href="">ABOUT US</a>
+            <a href="">CUSTOMER SERVICE</a>
+            <a href="">SUBSCRIPTION</a>
+        </div>
+        <div class="icon">
+            <a href="">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="">
+                <i class="fa-solid fa-basketball"></i>
+            </a>
+            <a href="">
+                <i class="fa-brands fa-behance"></i>
+            </a>
+            <a href="">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
+        <span>Website by ShopiLaunch . Copyright SunplantShop</span>
+    </footer>
+</body>
+</html>
