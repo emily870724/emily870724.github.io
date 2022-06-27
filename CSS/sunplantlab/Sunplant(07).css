@@ -235,14 +235,17 @@ header .icon .basket{
 
 
     header .menu-nav .close{
-        /* display: flex; */
         text-align: center;
         position: fixed;
-        bottom: 0;
+        bottom: -100%;
         width: 350px;
         padding: 1% 0;
         background-color: #518432;
         color: #fff;
+        transition: .3s;
+    }
+    #menu-switch:checked ~ header .menu-nav .close{
+        bottom: 0;
     }
     header .menu-nav .close i,
     header .menu-nav .close span{
