@@ -34,9 +34,9 @@ header{
     position: absolute;
     display: none;
 }
-#home-switch{
+/* #home-switch{
     display: none;
-}
+} */
 header .menu-nav a{
     text-decoration: none;
     color: #000;
@@ -143,7 +143,7 @@ header .icon .basket{
     header .menu-nav .menu-content{
         position: relative;
         padding-left: 20px;
-        /* display: none; */
+        display: none;
         font-size: 14px;
     }
     header .menu-nav .menu-content li{
@@ -160,6 +160,9 @@ header .icon .basket{
     }
     header #home-switch:checked ~ .home-switch i{
         transform: rotate(180deg);
+    }
+    header #home-switch:checked ~ .menu-content{
+        display: block;
     }
     header .menu-nav .close{
         display: flex;
