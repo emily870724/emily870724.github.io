@@ -975,7 +975,7 @@ footer .icon a:hover::before{
 }
 footer .icon a i{
     position: relative;
-    z-index: 3;
+    z-index: 1;
 }
 footer span{
     color: #949494;
