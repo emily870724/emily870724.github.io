@@ -163,8 +163,10 @@ header .icon .basket{
         position: relative;
         padding-left: 20px;
         font-size: 14px;
+        /* display: none; */
         overflow: hidden;
-        height: 0;
+        height: 1px;
+        transition: 1s;
     }
 
     header .menu-nav .menu-content li{
@@ -225,36 +227,21 @@ header .icon .basket{
     #element-switch:checked ~ .element-switch i{
         transform: rotate(180deg);
     }
-    #home-switch:checked ~ .menu-content,
-    #shop-switch:checked ~ .menu-content,
-    #featured-switch:checked ~ .menu-content,
-    #pages-switch:checked ~ .menu-content,
+    
+    #home-switch:checked ~ .menu-content{
+        height: 195px;
+    }
+    #shop-switch:checked ~ .menu-content{
+        height: 316px;
+    }
+    #featured-switch:checked ~ .menu-content{
+        height: 802px;
+    }
+    #pages-switch:checked ~ .menu-content{
+        height: 87px;
+    }
     #element-switch:checked ~ .menu-content{
-        display: block;
-        height: auto;
-        animation: expand 1.5s;
-        /* animation: scaletest .5s ease;
-        transform-origin: top; */
-    }
-    @keyframes expand{
-        0% {
-            height: 0px;
-        }
-        95% {
-            height: 350px;
-        }
-        100% {
-            height: auto;
-        }
-    }
-    @keyframes scaletest {
-        0% {
-            transform: scaleY(0);
-        }
-        
-        100% {
-            transform: scaleY(1);
-        }
+        height: 384x;
     }
 
     header .menu-nav .close{
