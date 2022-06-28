@@ -230,21 +230,86 @@ header .icon .basket{
     #pages-switch:checked ~ .menu-content,
     #element-switch:checked ~ .menu-content{
         display: block;
-        animation: unfold 1.5s;
+        overflow: hidden;
+        /* animation: expand 1.5s; */
+        /* animation: scaletest .5s ease;
+        transform-origin: top; */
     }
-    @keyframes unfold{
+    @keyframes expand{
         0% {
-            height: 5px;
+            height: 0px;
         }
-        95%{
+        95% {
             height: 350px;
         }
         100% {
             height: auto;
         }
     }
-    
-
+    @keyframes scaletest {
+        0% {
+            transform: scaleY(0);
+        }
+        
+        100% {
+            transform: scaleY(1);
+        }
+    }
+    #home-switch:checked ~ .menu-content{
+        animation: home-expand 1.5s;
+    }
+    @keyframes home-expand{
+        0% {
+            height: 0px;
+        }
+        100% {
+            height: 195px;
+        }
+    }
+    #shop-switch:checked ~ .menu-content{
+        animation: shop-expand 1.5s;
+    }
+    @keyframes shop-expand{
+        0% {
+            height: 0px;
+        }
+        100% {
+            height: 316px;
+        }
+    }
+    #featured-switch:checked ~ .menu-content{
+        animation: featured-expand 1.5s;
+    }
+    @keyframes featured-expand{
+        0% {
+            height: 0px;
+        }
+        100% {
+            height: 802px;
+        }
+    }
+    #pages-switch:checked ~ .menu-content{
+        animation: pages-expand 1.5s;
+    }
+    @keyframes pages-expand{
+        0% {
+            height: 0px;
+        }
+        100% {
+            height: 87px;
+        }
+    }
+    #element-switch:checked ~ .menu-content{
+        animation: element-expand 1.5s;
+    }
+    @keyframes element-expand{
+        0% {
+            height: 0px;
+        }
+        100% {
+            height: 384x;
+        }
+    }
 
     header .menu-nav .close{
         text-align: center;
