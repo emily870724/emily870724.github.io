@@ -163,7 +163,6 @@ header .icon .basket{
         position: relative;
         padding-left: 20px;
         font-size: 14px;
-        /* display: none; */
         overflow: hidden;
         height: 1px;
         transition: 1s;
@@ -241,7 +240,7 @@ header .icon .basket{
         height: 87px;
     }
     #element-switch:checked ~ .menu-content{
-        height: 384x;
+        height: 384px;
     }
 
     header .menu-nav .close{
