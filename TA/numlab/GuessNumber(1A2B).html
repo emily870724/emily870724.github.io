@@ -95,7 +95,7 @@
         </div>
         <div class="record"></div>
         <div class="guess">
-            <input type="text" class="enter" placeholder="請輸入4個不重複的數字(0 ~ 9)">
+            <input type="text" class="enter" placeholder="請輸入4個不重複的數字">
             <button class="send">→ 送出</button>
         </div>
     </div>
@@ -137,6 +137,7 @@
             availableBtn(enter)
             availableBtn(send)
             record.innerHTML = ''
+            alert(`請在下方輸入數字(0~9)後送出`)
         })
         function playGame() {
             let num = 0
