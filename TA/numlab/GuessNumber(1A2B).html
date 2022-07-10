@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <title>GuessNumber(1A2B)</title>
+    <style>
+        .container {
+            margin: 30px auto 0;
+            width: 80%;
+            max-width: 800px;
+        }
+        h1{
+            margin: 0 auto 30px;
+            text-align: center;
+            font-size: 50px;
+        }
+        .game {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .game button {
+            margin: 0;
+            width: 32%;
+            border: 2px solid;
+            border-radius: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .record {
+            border: 2px solid darkgray;
+            border-radius: 10px;
+            min-height: 200px;
+            max-height: 330px;
+            overflow-y:auto;
+        }
+
+        .record div {
+            margin: 10px auto;
+            font-size: 24px;
+        }
+
+        .record h2 {
+            display: inline-block;
+            border-radius: 5px;
+            background-color:darksalmon;
+            font-weight: bolder;
+            margin: auto 20px;
+            font-size: 24px;
+        }
+
+        .guess {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            border: 2px solid rgb(35, 35, 35);
+            background-color: #efefef;
+            border-radius: 10px;
+        }
+
+        .guess span {
+            width: 20%;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .guess .enter {
+            width: 80%;
+            font-size: 16px;
+            outline: none;
+            padding: 6px 10px;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .guess .send {
+            width: 20%;
+            font-size: 16px;
+            border: none;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>1 A 2 B</h1>
+        <div class="game">
+            <button class="start">開始遊戲</button>
+            <button class="again">放棄重來</button>
+            <button class="ans">查看答案</button>
+        </div>
+        <div class="record"></div>
+        <div class="guess">
+            <span>猜答案</span>
+            <input type="text" class="enter" placeholder="請輸入4個不重複的數字(0 ~ 9)">
+            <button class="send">→ 送出</button>
+        </div>
+    </div>
+
+
+    <script>
+        let randomNum = ''
+        let start = document.querySelector('.start')
+        let again = document.querySelector('.again')
+        let ans = document.querySelector('.ans')
+        let record = document.querySelector('.record')
+        let enter = document.querySelector('.enter')
+        let enterNum = []
+        let send = document.querySelector('.send')
+
+        //disabled
+        disabledBtn(again)
+        disabledBtn(ans)
+        disabledBtn(enter)
+        disabledBtn(send)
+        function disabledBtn(btn) {
+            btn.setAttribute('disabled', 'disabled')
+            btn.setAttribute('style', 'cursor:auto;')
+        }
+        function availableBtn(btn) {
+            btn.removeAttribute('disabled', 'disabled')
+            btn.setAttribute('style', 'cursor: pointer;')
+        }
+
+
+
+        // 產生亂數
+        start.addEventListener('click', () => {
+            randomNum = playGame()
+            ans.onclick = () => { alert(`答案 : ${randomNum.join('')}`) }
+            disabledBtn(start)
+            availableBtn(again)
+            availableBtn(ans)
+            availableBtn(enter)
+            availableBtn(send)
+            record.innerHTML = ''
+        })
+        function playGame() {
+            let num = 0
+            const numArr = []
+            while (numArr.length < 4) {
+                num = getRandom()
+                if (numArr.includes(num)) {
+                    continue
+                }
+                else {
+                    numArr.push(num)
+                }
+            }
+            return numArr
+        }
+        function getRandom() {
+            return Math.floor(Math.random() * 10);
+        };
+
+        // 輸入數字
+        send.addEventListener('click', () => {
+            check()
+        })
+        //偵錯
+        function check() {
+            enterNum = Array.from(enter.value)
+            let uniqueNum = Array.from(new Set(enterNum))
+            if (uniqueNum.length != 4) {
+                alert(`請輸入4個不重複的數字(0 ~ 9)`)
+            }
+            else {
+                compare(randomNum, enterNum,enter.value)
+            }
+            enter.value = ''
+        }
+        function compare(random, enter,enterValue) {
+            let A=0
+            let B=0
+            for(let i=0 ; i<4 ;i++){
+                if(random[i] == enter[i]){
+                    A++
+                }
+                for(let j=0 ; j<4 ;j++){
+                    if(i!=j &&random[i]==enter[j])
+                    B++
+                }
+            }
+            let div = document.createElement('div')
+            if (A == 4) {
+                div.innerHTML = `<h2 style="background-color:cadetblue ;">${A}A ${B}B</h2>${enterValue}`
+                availableBtn(start)
+                disabledBtn(again)
+                disabledBtn(ans)
+                disabledBtn(send)
+                alert(`恭喜答對!`)
+            }
+            else {
+                div.innerHTML = `<h2>${A}A ${B}B</h2> ${enterValue}`
+            }
+            record.append(div)
+        }
+
+        //放棄重來
+        again.onclick = () => {
+            alert(`答案 : ${randomNum.join('')}`)
+            availableBtn(start)
+            disabledBtn(again)
+            disabledBtn(ans)
+            disabledBtn(enter)
+            disabledBtn(send)
+        }
+    </script>
+</body>
+
+</html>
