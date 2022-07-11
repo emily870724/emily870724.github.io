@@ -112,14 +112,13 @@
 
     <script>
         let randomNum = ''
-        const start = document.querySelector('.start')
-        const again = document.querySelector('.again')
-        const ans = document.querySelector('.ans')
+        let start = document.querySelector('.start')
+        let again = document.querySelector('.again')
+        let ans = document.querySelector('.ans')
         let record = document.querySelector('.record')
-        const enter = document.querySelector('.enter')
-        console.dir(enter)
+        let enter = document.querySelector('.enter')
         let enterNum = []
-        const send = document.querySelector('.send')
+        let send = document.querySelector('.send')
 
         //disabled
         disabledBtn(again)
@@ -127,11 +126,11 @@
         disabledBtn(enter)
         disabledBtn(send)
         function disabledBtn(btn) {
-            btn.setAttribute('disabled','true')
+            btn.setAttribute('disabled', 'disabled')
             btn.setAttribute('style', 'cursor:auto;')
         }
         function availableBtn(btn) {
-            btn.removeAttribute('disabled', 'true')
+            btn.removeAttribute('disabled', 'disabled')
             btn.setAttribute('style', 'cursor: pointer;')
         }
 
@@ -184,15 +183,15 @@
             }
             enter.value = ''
         }
-        function compare(random, enterArr, enterValue) {
+        function compare(random, enter, enterValue) {
             let A = 0
             let B = 0
             for (let i = 0; i < 4; i++) {
-                if (random[i] == enterArr[i]) {
+                if (random[i] == enter[i]) {
                     A++
                 }
                 for (let j = 0; j < 4; j++) {
-                    if (i != j && random[i] == enterArr[j])
+                    if (i != j && random[i] == enter[j])
                         B++
                 }
             }
@@ -202,7 +201,6 @@
                 availableBtn(start)
                 disabledBtn(again)
                 disabledBtn(ans)
-                disabledBtn(enter)
                 disabledBtn(send)
                 alert(`恭喜答對!`)
             }
