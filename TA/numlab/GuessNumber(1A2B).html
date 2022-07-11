@@ -13,11 +13,13 @@
             width: 80%;
             max-width: 800px;
         }
-        h1{
+
+        h1 {
             margin: 0 auto 30px;
             text-align: center;
             font-size: 50px;
         }
+
         .game {
             display: flex;
             justify-content: space-between;
@@ -38,7 +40,7 @@
             border-radius: 10px;
             min-height: 200px;
             max-height: 330px;
-            overflow-y:auto;
+            overflow-y: auto;
         }
 
         .record div {
@@ -49,7 +51,7 @@
         .record h2 {
             display: inline-block;
             border-radius: 5px;
-            background-color:darksalmon;
+            background-color: darksalmon;
             font-weight: bolder;
             margin: auto 20px;
             font-size: 24px;
@@ -64,6 +66,12 @@
             background-color: #efefef;
             border-radius: 10px;
         }
+
+        /* .guess span {
+            width: 20%;
+            text-align: center;
+            font-size: 16px;
+        } */
 
         .guess .enter {
             width: 70%;
@@ -95,6 +103,7 @@
         </div>
         <div class="record"></div>
         <div class="guess">
+            <!-- <span>猜</span> -->
             <input type="text" class="enter" placeholder="請輸入4個不重複的數字">
             <button class="send">→ 送出</button>
         </div>
@@ -165,24 +174,25 @@
         function check() {
             enterNum = Array.from(enter.value)
             let uniqueNum = Array.from(new Set(enterNum))
-            if (uniqueNum.length != 4) {
+            let isNum = Number(enter.value)
+            if (isNaN(isNum) || uniqueNum.length != 4 || enterNum.length != 4) {
                 alert(`請輸入4個不重複的數字(0 ~ 9)`)
             }
             else {
-                compare(randomNum, enterNum,enter.value)
+                compare(randomNum, enterNum, enter.value)
             }
             enter.value = ''
         }
-        function compare(random, enter,enterValue) {
-            let A=0
-            let B=0
-            for(let i=0 ; i<4 ;i++){
-                if(random[i] == enter[i]){
+        function compare(random, enter, enterValue) {
+            let A = 0
+            let B = 0
+            for (let i = 0; i < 4; i++) {
+                if (random[i] == enter[i]) {
                     A++
                 }
-                for(let j=0 ; j<4 ;j++){
-                    if(i!=j &&random[i]==enter[j])
-                    B++
+                for (let j = 0; j < 4; j++) {
+                    if (i != j && random[i] == enter[j])
+                        B++
                 }
             }
             let div = document.createElement('div')
