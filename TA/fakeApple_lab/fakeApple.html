@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./header.css">
+    <script src="https://kit.fontawesome.com/a54152b54f.js" crossorigin="anonymous"></script>
+    <title>fakeApple</title>
+    <style>
+        .product-group {
+            max-width: 1000px;
+            display: flex;
+            margin: auto;
+            justify-content:space-around;
+            margin-top: 150px;
+        }
+
+        @media screen and (max-width: 767px) {
+            .product-group{
+                margin-top: 0;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .product-group a {
+            text-decoration: none;
+            color: #000;
+        }
+        .product-item h2{
+            text-align: center;
+            margin: 20px 0;
+            font-size: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-wrap">
+            <div class="logo">
+                <h1 class="sr-only">Apple</h1>
+                <a href="./fakeApple.html">
+                    <i class="fa-brands fa-apple"></i>
+                </a>
+            </div>
+            <label class="menu-button">
+                <i class="fa-solid fa-grip-lines"></i>
+            </label>
+            <nav class="menu" id="menu">
+                <div class="menu-wrap">
+                    <div class="menu-search">
+                        <input type="text" class="menu-search-input" placeholder="搜尋 apple.com">
+                    </div>
+                    <div class="menu-link-group">
+                        <a href="./fakeApple.html" class="menu-link">商店</a>
+                        <a href="./fakeMac.html" class="menu-link">Mac</a>
+                        <a href="./fakeiPad.html" class="menu-link">iPad</a>
+                        <a href="./fakeiPhone.html" class="menu-link">iPhone</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="user">
+                <a href="#" class="user-item search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="#" class="user-item shopping-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <ul class="product-group">
+            <li class="product-item">
+                <a href="./fakeMac.html">
+                    <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-mac-nav-202203?wid=200&hei=130&fmt=png-alpha&.v=1645051958490"
+                        alt="Mac.img">
+                    <h2>Mac</h2>
+                </a>
+            </li>
+            <li class="product-item">
+                <a href="./fakeiPad.html">
+                    <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-ipad-nav-202108?wid=200&hei=130&fmt=png-alpha&.v=1625783381000"
+                        alt="iPad.img">
+                    <h2>iPad</h2>
+                </a>
+            </li>
+            <li class="product-item">
+                <a href="./fakeiPhone.html">
+                    <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/store-card-13-iphone-nav-202109?wid=200&hei=130&fmt=png-alpha&.v=1630706116000"
+                        alt="iPhone.img">
+                    <h2>iPhone</h2>
+                </a>
+            </li>
+        </ul>
+    </main>
+
+
+    <script>
+        const menu = document.querySelector('#menu')
+        const menuBars = document.querySelector('.menu-button')
+        menuBars.addEventListener('click', () => {
+            menu.classList.toggle("menu-down")
+        })
+    </script>
+</body>
+
+</html>

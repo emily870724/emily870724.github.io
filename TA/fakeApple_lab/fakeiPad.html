@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./header.css">
+    <link rel="stylesheet" href="./container.css">
+    <script src="https://kit.fontawesome.com/a54152b54f.js" crossorigin="anonymous"></script>
+    <title>fakeApple</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-wrap">
+            <div class="logo">
+                <h1 class="sr-only">Apple</h1>
+                <a href="./fakeApple.html">
+                    <i class="fa-brands fa-apple"></i>
+                </a>
+            </div>
+            <label class="menu-button">
+                <i class="fa-solid fa-grip-lines"></i>
+            </label>
+            <nav class="menu" id="menu">
+                <div class="menu-wrap">
+                    <div class="menu-search">
+                        <input type="text" class="menu-search-input" placeholder="搜尋 apple.com">
+                    </div>
+                    <div class="menu-link-group">
+                        <a href="./fakeApple.html" class="menu-link">商店</a>
+                        <a href="./fakeMac.html" class="menu-link">Mac</a>
+                        <a href="./fakeiPad.html" class="menu-link">iPad</a>
+                        <a href="./fakeiPhone.html" class="menu-link">iPhone</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="user">
+                <a href="#" class="user-item search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="#" class="user-item shopping-icon">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="product-header">
+            <div class="product-name">product-name</div>
+            <span class="product-price">product-price</span>
+        </div>
+    </div>
+    <p class="text">
+        可申請最長達 12 個月的零利率分期付款。
+        <a href="#">
+            進一步了解
+            <i class="fa-solid fa-chevron-right"></i>
+        </a>
+    </p>
+    <main class="main container">
+        <div class="product-image">
+            <img class="main-image" id="main-image" src="" alt="">
+        </div>
+        <div class="product-spec">
+            <div class="spec-discount">
+                <h1 class="discount-title">discount-title</h1>
+                <p class="discount-description">
+                    discount-description
+                </p>
+            </div>
+
+            <div class="select">
+                <h2 class="select-title">選擇機型</h2>
+                <ul class="select-btn-group" id="select-product">
+                </ul>
+            </div>
+
+            <div class="select">
+                <h2 class="select-title">選擇外觀</h2>
+                <ul class="select-btn-group" id="select-color">
+                </ul>
+            </div>
+
+            <div class="select">
+                <h2 class="select-title">選擇儲存容量</h2>
+                <ul class="select-btn-group" id="select-storage">
+                </ul>
+            </div>
+            <div class="select">
+                <h2 class="select-title">連線能力</h2>
+                <ul class="select-btn-group" id="select-wifi">
+                </ul>
+            </div>
+            <span class="total-price">total-price</span>
+        </div>
+    </main>
+
+    <script>
+        const menu = document.querySelector('#menu')
+        const menuBars = document.querySelector('.menu-button')
+        menuBars.addEventListener('click', () => {
+            menu.classList.toggle("menu-down")
+        })
+    </script>
+
+    <script>
+        const productName = document.querySelector('.product-name')
+        productName.innerHTML = 'iPad Pro'
+        const productPrice = document.querySelector('.product-price')
+        productPrice.innerHTML = 'NT$ 24900 起'
+        const mainImage = document.querySelector('#main-image')
+        mainImage.src = 'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-pro-11-select-202104_GEO_TW?wid=970&amp;hei=1020&amp;fmt=png-alpha&amp;.v=1617899803000'
+        mainImage.alt = 'iPad Pro.img'
+        const discountTitle = document.querySelector('.discount-title')
+        discountTitle.innerHTML = '購買 iPad Pro'
+        const discountDescription = document.querySelector('.discount-description')
+        discountDescription.innerHTML = '購買 iPad 可享免額外付費運送服務。'
+        const totalPrice = document.querySelector('.total-price')
+        totalPrice.innerHTML = 'NT$ 24900 起'
+    </script>
+
+    <script>
+        const productList = [
+            {
+                "category": "iPad Pro",
+                "model": "11 吋顯示器",
+                "monitor": "Liquid Retina顯示器",
+                "price": 24900,
+                "mainImage": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-pro-11-select-202104_GEO_TW?wid=970&amp;hei=1020&amp;fmt=png-alpha&amp;.v=1617899803000",
+                "color": [
+                    {
+                        "name": "太空灰色",
+                        "hexcode": "#6e6f73",
+                        "image": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-pro-11-select-cell-spacegray-202104_GEO_TW?wid=470&hei=556&fmt=p-jpg&qlt=95&.v=1617925790000"
+                    },
+                    {
+                        "name": "銀色",
+                        "hexcode": "#dddfde",
+                        "image": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-pro-11-select-cell-silver-202104_GEO_TW?wid=940&hei=1112&fmt=p-jpg&qlt=95&.v=1617912663000"
+                    }
+                ],
+                "storage": [
+                    {
+                        "capacity": "128GB",
+                        "addPrice": 0,
+                        "price": "NT$ 24900 起"
+                    },
+                    {
+                        "capacity": "256GB",
+                        "addPrice": 3100,
+                        "price": "NT$ 28000 起"
+                    },
+                    {
+                        "capacity": "512GB",
+                        "addPrice": 9300,
+                        "price": "NT$ 34200 起"
+                    },
+                    {
+                        "capacity": "1TB",
+                        "addPrice": 21700,
+                        "price": "NT$ 46600 起"
+                    },
+                    {
+                        "capacity": "2TB",
+                        "addPrice": 34100,
+                        "price": "NT$ 59000 起"
+                    }
+                ],
+                "wifi": [
+                    {
+                        "capacity": "Wi-Fi",
+                        "addPrice": 0,
+                        "price": "NT$ 24900 起"
+                    },
+                    {
+                        "capacity": "Wi-Fi +行動網路",
+                        "addPrice": 5000,
+                        "price": "NT$ 29900 起"
+                    }
+                ]
+            },
+            {
+                "category": "iPad Pro",
+                "model": "12.9 吋顯示器",
+                "monitor": "Liquid Retina XDR顯示器",
+                "price": 34900,
+                "mainImage": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-pro-12-select-202104_GEO_TW?wid=970&amp;hei=1020&amp;fmt=png-alpha&amp;.v=1617903458000",
+                "color": [
+                    {
+                        "name": "太空灰色",
+                        "hexcode": "#6e6f73",
+                        "image": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-pro-12-select-cell-spacegray-202104_GEO_TW?wid=940&hei=1112&fmt=p-jpg&qlt=95&.v=1617920534000"
+                    },
+                    {
+                        "name": "銀色",
+                        "hexcode": "#dddfde",
+                        "image": "https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/ipad-pro-12-select-cell-silver-202104_GEO_TW?wid=940&hei=1112&fmt=p-jpg&qlt=95&.v=1617919669000"
+                    }
+                ],
+                "storage": [
+                    {
+                        "capacity": "128GB",
+                        "addPrice": 0,
+                        "price": "NT$ 34900 起"
+                    },
+                    {
+                        "capacity": "256GB",
+                        "addPrice": 3100,
+                        "price": "NT$ 38000 起"
+                    },
+                    {
+                        "capacity": "512GB",
+                        "addPrice": 9300,
+                        "price": "NT$ 44200 起"
+                    },
+                    {
+                        "capacity": "1TB",
+                        "addPrice": 21700,
+                        "price": "NT$ 56600 起"
+                    },
+                    {
+                        "capacity": "2TB",
+                        "addPrice": 34100,
+                        "price": "NT$ 69000 起"
+                    }
+                ],
+                "wifi": [
+                    {
+                        "capacity": "Wi-Fi",
+                        "addPrice": 0,
+                        "price": "NT$ 34900 起"
+                    },
+                    {
+                        "capacity": "Wi-Fi +行動網路",
+                        "addPrice": 5000,
+                        "price": "NT$ 39900 起"
+                    }
+                ]
+            }
+        ]
+        const selectProduct = document.querySelector('#select-product')
+        const selectColor = document.querySelector('#select-color')
+        const selectStorage = document.querySelector('#select-storage')
+        const selectWifi = document.querySelector('#select-wifi')
+        const selectTitle = document.querySelectorAll('.select-title')
+        const selectBtnGroup = document.querySelectorAll('.select-btn-group')
+        const selectBtn = document.querySelectorAll('.select-btn')
+        addModel(selectProduct)
+        function addModel(specification) {
+            productList.forEach(product => {
+                const li = document.createElement('li')
+                li.classList.add("select-btn", "select-product-btn")
+                li.innerHTML = product.model
+                specification.append(li)
+                const p = document.createElement('p')
+                p.classList.add("select-text")
+                p.innerText = product.monitor
+                li.append(p)
+            })
+        }
+        function addColor(productlist, specification) {
+            productlist.color.forEach(colors => {
+                const li = document.createElement('li')
+                li.classList.add("select-btn", "w-50", "select-color-btn")
+                specification.append(li)
+                const coloricon = document.createElement('span')
+                coloricon.classList.add("select-coloricon")
+                coloricon.style.backgroundColor = colors.hexcode
+                li.append(coloricon)
+                const p = document.createElement('p')
+                p.classList.add("select-text")
+                p.innerText = colors.name
+                li.append(p)
+            })
+        }
+        function addStorage(productlist, specification) {
+            productlist.storage.forEach(storages => {
+                const li = document.createElement('li')
+                li.classList.add("select-btn", "w-50", "select-storage-btn")
+                li.innerText = storages.capacity
+                specification.append(li)
+                const p = document.createElement('p')
+                p.classList.add("select-text")
+                p.innerText = storages.price
+                li.append(p)
+            })
+        }
+        function addWifi(productlist, specification) {
+            productlist.wifi.forEach(wifis => {
+                const li = document.createElement('li')
+                li.classList.add("select-btn", "w-50", "select-wifi-btn")
+                li.innerText = wifis.capacity
+                specification.append(li)
+                const p = document.createElement('p')
+                p.classList.add("select-text")
+                p.innerText = wifis.price
+                li.append(p)
+            })
+        }
+
+        const productBtn = document.querySelectorAll('.select-product-btn')
+        //產生規格的選項
+        productList.forEach((product, index) => {
+            productBtn[index].addEventListener('click', () => {
+                selectColor.innerHTML = ''
+                selectStorage.innerHTML = ''
+                selectWifi.innerHTML = ''
+                addColor(product, selectColor)
+                addStorage(product, selectStorage)
+                addWifi(product, selectWifi)
+                const selectBtn = document.querySelectorAll('.w-50')
+                for (i = 0; i < selectBtn.length; i++) {
+                    selectBtn[i].style.display = 'flex';
+                }
+                productBtn.forEach(btn=>{btn.style.border = '2px solid #ccc'})
+                productBtn[index].style.border = '2px solid #4790d8'
+
+                productName.innerHTML = product.model
+                productPrice.innerHTML = `NT$ ${product.price} 起`
+                mainImage.src=product.mainImage
+                totalPrice.innerHTML=productPrice.innerText
+
+                //點顏色換圖片
+                const colorBtn = document.querySelectorAll('.select-color-btn')
+                colorBtn.forEach((colorbtn, index) => {
+                    colorbtn.addEventListener('click', () => {
+                        colorBtn.forEach(btn=>{btn.style.border = '2px solid #ccc'})
+                        mainImage.src = product.color[index].image
+                        colorbtn.style.border = '2px solid #4790d8'
+                    })
+                })
+
+                //點容量算價錢
+                let totalPricenum =0
+                const storageBtn = document.querySelectorAll('.select-storage-btn')
+                storageBtn.forEach((storagebtn, index) => {
+                    storagebtn.addEventListener('click', () => {
+                        storageBtn.forEach(btn=>{btn.style.border = '2px solid #ccc'})
+                        productPrice.innerHTML = `NT$ ${product.price + product.storage[index].addPrice}`
+                        totalPrice.innerHTML=productPrice.innerText
+                        storagebtn.style.border = '2px solid #4790d8'
+
+                        wifiBtn.forEach(btn=>{btn.style.border = '2px solid #ccc'})
+                        totalPricenum=product.price + product.storage[index].addPrice
+                    })
+                })
+                const wifiBtn = document.querySelectorAll('.select-wifi-btn')
+                wifiBtn.forEach((wifibtn, index) => {
+                    wifibtn.addEventListener('click', () => {
+                        wifiBtn.forEach(btn=>{btn.style.border = '2px solid #ccc'})
+                        productPrice.innerHTML = `NT$ ${totalPricenum +product.wifi[index].addPrice}`
+                        totalPrice.innerHTML=productPrice.innerText
+                        wifibtn.style.border = '2px solid #4790d8'
+                    })
+                })
+            })
+        })
+
+    </script>
+
+
+
+</body>
+
+</html>
