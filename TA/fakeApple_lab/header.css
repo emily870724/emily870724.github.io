@@ -28,6 +28,7 @@
     color: #fff;
 }
 
+
 @media screen and (max-width: 767px) {
     .header-wrap {
         display: flex;
@@ -47,6 +48,7 @@
         transform: scaleY(0);
         transform-origin: top;
         transition:transform .5s ease,height .5s ease;
+        z-index: 200;
     }
 
     .menu-down {
