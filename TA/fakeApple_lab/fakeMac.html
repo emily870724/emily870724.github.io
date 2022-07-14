@@ -11,10 +11,11 @@
     <script src="https://kit.fontawesome.com/a54152b54f.js" crossorigin="anonymous"></script>
     <title>fakeApple</title>
     <style>
-        .product-image{
+        .product-image {
             margin-bottom: 100px;
         }
-        .main-image{
+
+        .main-image {
             position: relative;
             top: 70px;
             z-index: -1;
@@ -57,53 +58,53 @@
             </div>
         </div>
     </header>
-
-    <div class="container">
-        <div class="product-header">
-            <div class="product-name">product-name</div>
-            <span class="product-price">product-price</span>
+    <main>
+        <div class="product-top">
+            <div class="product-header container">
+                <div class="product-name">product-name</div>
+                <span class="product-price">product-price</span>
+            </div>
         </div>
-    </div>
-    <p class="text">
-        可申請最長達 12 個月的零利率分期付款。
-        <a href="#">
-            進一步了解
-            <i class="fa-solid fa-chevron-right"></i>
-        </a>
-    </p>
-    <main class="main container">
-        <div class="product-image">
-            <img class="main-image" id="main-image" src="" alt="">
-        </div>
-        <div class="product-spec">
-            <div class="spec-discount">
-                <h1 class="discount-title">discount-title</h1>
-                <p class="discount-description">
-                    discount-description
-                </p>
+        <p class="text">
+            可申請最長達 12 個月的零利率分期付款。
+            <a href="#">
+                進一步了解
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        </p>
+        <section class="main container">
+            <div class="product-image">
+                <img class="main-image" id="main-image" src="" alt="">
             </div>
+            <div class="product-spec">
+                <div class="spec-discount">
+                    <h1 class="discount-title">discount-title</h1>
+                    <p class="discount-description">
+                        discount-description
+                    </p>
+                </div>
 
-            <div class="select">
-                <h2 class="select-title">選擇機型</h2>
-                <ul class="select-btn-group" id="select-product">
-                </ul>
-            </div>
+                <div class="select">
+                    <h2 class="select-title">選擇機型</h2>
+                    <ul class="select-btn-group" id="select-product">
+                    </ul>
+                </div>
 
-            <div class="select">
-                <h2 class="select-title">選擇外觀</h2>
-                <ul class="select-btn-group" id="select-color">
-                </ul>
-            </div>
+                <div class="select">
+                    <h2 class="select-title">選擇外觀</h2>
+                    <ul class="select-btn-group" id="select-color">
+                    </ul>
+                </div>
 
-            <div class="select">
-                <h2 class="select-title">選擇儲存容量 - SSD儲存裝置</h2>
-                <ul class="select-btn-group" id="select-storage">
-                </ul>
+                <div class="select">
+                    <h2 class="select-title">選擇儲存容量 - SSD儲存裝置</h2>
+                    <ul class="select-btn-group" id="select-storage">
+                    </ul>
+                </div>
+                <span class="total-price">total-price</span>
             </div>
-            <span class="total-price">total-price</span>
-        </div>
+        </section>
     </main>
-
     <script>
         const menu = document.querySelector('#menu')
         const menuBars = document.querySelector('.menu-button')
@@ -252,19 +253,19 @@
                 for (i = 0; i < selectBtn.length; i++) {
                     selectBtn[i].style.display = 'flex';
                 }
-                productBtn.forEach(btn=>{btn.style.border = '2px solid #ccc'})
+                productBtn.forEach(btn => { btn.style.border = '2px solid #ccc' })
                 productBtn[index].style.border = '2px solid #4790d8'
 
                 productName.innerHTML = product.model
                 productPrice.innerHTML = `NT$ ${product.price} 起`
-                mainImage.src=product.mainImage
-                totalPrice.innerHTML=productPrice.innerText
+                mainImage.src = product.mainImage
+                totalPrice.innerHTML = productPrice.innerText
 
                 //點顏色換圖片
                 const colorBtn = document.querySelectorAll('.select-color-btn')
                 colorBtn.forEach((colorbtn, index) => {
                     colorbtn.addEventListener('click', () => {
-                        colorBtn.forEach(btn=>{btn.style.border = '2px solid #ccc'})
+                        colorBtn.forEach(btn => { btn.style.border = '2px solid #ccc' })
                         mainImage.src = product.color[index].image
                         colorbtn.style.border = '2px solid #4790d8'
                     })
@@ -274,9 +275,9 @@
                 const storageBtn = document.querySelectorAll('.select-storage-btn')
                 storageBtn.forEach((storagebtn, index) => {
                     storagebtn.addEventListener('click', () => {
-                        storageBtn.forEach(btn=>{btn.style.border = '2px solid #ccc'})
+                        storageBtn.forEach(btn => { btn.style.border = '2px solid #ccc' })
                         productPrice.innerHTML = `NT$ ${product.price + product.storage[index].addPrice}`
-                        totalPrice.innerHTML=productPrice.innerText
+                        totalPrice.innerHTML = productPrice.innerText
                         storagebtn.style.border = '2px solid #4790d8'
                     })
                 })
