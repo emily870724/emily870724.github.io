@@ -60,26 +60,34 @@ html {
     height: 400px;
 }
 
-.day {
+.day,
+.day-ruleout {
     width: 12.5%;
-    border: 1.5px solid #9297e0;
     margin: 3px 0.75%;
-    font-size: 12px;
     padding: 5px;
     box-sizing: border-box;
     overflow: hidden;
+}
+
+.day {
+    border: 1.5px solid #9297e0;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .day-ruleout {
-    width: 12.5%;
     border: 1.5px solid #b8bae0;
     color: #b8bae0;
-    margin: 3px 0.75%;
     font-size: 12px;
-    padding: 5px;
-    box-sizing: border-box;
-    overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+    .day {
+        font-size: 12px;
+    }
+    .day-ruleout {
+        font-size: 10px;
+    }
 }
 
 .fa-plus {
