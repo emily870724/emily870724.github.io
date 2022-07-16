@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a54152b54f.js" crossorigin="anonymous"></script>
+    <title>行事曆</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="year">Year</div>
+        <div class="months">
+            <i class="fa-solid fa-angle-left"></i>
+            <h2 class="month">Month</h2>
+            <i class="fa-solid fa-angle-right"></i>
+        </div>
+    </header>
+    <main class="container">
+        <ul class="weeklist row">
+            <li class="week">
+                <img src="./img/week-bg-900--.png" alt="">
+                <h2>Sun</h2>
+            </li>
+            <li class="week">
+                <img src="./img/week-bg-900--.png" alt="">
+                <h2>Mon</h2>
+            </li>
+            <li class="week">
+                <img src="./img/week-bg-900--.png" alt="">
+                <h2>Tue</h2>
+            </li>
+            <li class="week">
+                <img src="./img/week-bg-900--.png" alt="">
+                <h2>Wed</h2>
+            </li>
+            <li class="week">
+                <img src="./img/week-bg-900--.png" alt="">
+                <h2>Fri</h2>
+            </li>
+            <li class="week">
+                <img src="./img/week-bg-900--.png" alt="">
+                <h2>Fri</h2>
+            </li>
+            <li class="week">
+                <img src="./img/week-bg-900--.png" alt="">
+                <h2>Sat</h2>
+            </li>
+        </ul>
+        <ul class="daylist row"></ul>
+        <div class="send">
+            <i class="fa-solid fa-plus"></i>
+        </div>
+    </main>
+    <div class="input">
+        <div class="close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="calendar">
+            <label>
+                <span class="date"></span>
+                <!-- <input type="date"> -->
+            </label>
+            <label>
+                <span>標題 : </span>
+                <input type="text" placeholder="標題">
+            </label>
+            <label>
+                <span>行程時間 : </span>
+                <input type="time">
+            </label>
+            <label>
+                <span>標記 : </span>
+                <input type="color">
+            </label>
+            <label>
+                <span>代辦事項 : </span>
+                <textarea placeholder="" class="enter" id="" rows="8" maxlength="100"></textarea>
+            </label>
+            <div class="add">
+                <input type="submit" value="加入">
+                <input type="reset" value="重設">
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const months = ["January", "Febrary", "March", "April", "May", "June", "July", "Auguest", "September", "October", "November", "December"];
+        let date, year, month, day, dayOfWeek, firstdayOfWeek, days, afterDays
+
+        //DOM
+        const showyear = document.querySelector('.year')
+        const showmonth = document.querySelector('.month')
+        const before = document.querySelector('.fa-angle-left')
+        const after = document.querySelector('.fa-angle-right')
+        const daylist = document.querySelector('.daylist')
+        const add = document.querySelector('.send')
+        const input = document.querySelector('.input')
+        const close = document.querySelector('.close')
+        const addCalendar = document.querySelector('.date')
+        const submit = document.querySelector('.submit')
+        const reset = document.querySelector('.reset')
+
+        //window.onload
+        window.onload = () => {
+            date = new Date()
+            year = date.getFullYear()
+            month = date.getMonth()
+            day = date.getDate()
+            dayOfWeek = date.getDay()
+            firstdayOfWeek = new Date(year, month, 1).getDay()
+            days = new Date(year, month + 1, 0).getDate()
+            setHeader()
+            setDays()
+        }
+        before.addEventListener('click', () => {
+            month--
+            if (month < 0) {
+                month = month + 12
+                year--
+            }
+            resetData()
+        })
+        after.addEventListener('click', () => {
+            month++
+            if (month > 11) {
+                month = month - 12
+                year++
+            }
+            resetData()
+        })
+
+        //function
+        function setHeader() {
+            showyear.innerText = year
+            showmonth.innerText = months[month]
+        }
+        function setDays() {
+            for (let i = 0; i < firstdayOfWeek; i++) {
+                let li = document.createElement('li')
+                afterDays = new Date(year, month, 0).getDate()
+                li.innerText = afterDays - firstdayOfWeek + i + 1
+                li.setAttribute('class', 'day-ruleout')
+                daylist.append(li)
+            }
+            for (let i = 1; i <= days; i++) {
+                let li = document.createElement('li')
+                li.innerText = i
+                li.setAttribute('class', 'day')
+                daylist.append(li)
+            }
+            if (firstdayOfWeek + days > 35) {
+                for (let i = 1; i <= 42 - (firstdayOfWeek + days); i++) {
+                    let li = document.createElement('li')
+                    li.innerText = i
+                    li.setAttribute('class', ' day-ruleout')
+                    daylist.append(li)
+                }
+            } else {
+                for (let i = 1; i <= 35 - (firstdayOfWeek + days); i++) {
+                    let li = document.createElement('li')
+                    li.innerText = i
+                    li.setAttribute('class', ' day-ruleout')
+                    daylist.append(li)
+                }
+            }
+            const nowDay = document.querySelectorAll('.day')
+            nowDay.forEach(nowday => {
+                nowday.addEventListener('click', () => {
+                    input.setAttribute('style', 'display: flex;')
+                    addCalendar.innerText = `${year} / ${month + 1} / ${nowday.innerHTML}`
+                })
+                add.addEventListener('click', () => {
+                    input.setAttribute('style', 'display: flex;')
+                    addCalendar.innerText = `${year} / ${month + 1} / ${day}`
+                })
+                close.addEventListener('click', () => {
+                    input.setAttribute('style', 'display: none;')
+                })
+            })
+        }
+        function resetData() {
+            setHeader()
+            firstdayOfWeek = new Date(year, month, 1).getDay()
+            days = new Date(year, month + 1, 0).getDate()
+            daylist.innerHTML = ''
+            setDays()
+        }
+    </script>
+
+</body>
+
+</html>
