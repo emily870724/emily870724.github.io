@@ -61,18 +61,21 @@
             </li>
         </ul>
         <ul class="daylist row"></ul>
-        <div class="today">today</div>
+        <div class="send">
+            <i class="fa-solid fa-plus"></i>
+        </div>
     </main>
-    <div class="input" id="addEvent">
+    <div class="input">
         <div class="close">
             <i class="fa-solid fa-xmark"></i>
         </div>
         <div class="calendar">
             <label>
                 <span class="date"></span>
+                <!-- <input type="date"> -->
             </label>
             <label>
-                <span>行程 : </span>
+                <span>標題 : </span>
                 <input class="calendar-title" type="text" placeholder="標題">
             </label>
             <label>
@@ -83,19 +86,20 @@
                 <span>文字 : </span>
                 <input class="text-color" type="color">
                 <span>標記 : </span>
-                <input class="bg-color" type="color" value="#ffffff">
+                <input class="bg-color" type="color">
             </label>
             <label>
-                <span>備註 : </span>
+                <span>代辦事項 : </span>
                 <textarea placeholder="" class="enter" id="" rows="8" maxlength="100"></textarea>
             </label>
             <div class="add">
-                <input class="submit" type="submit" value="新增">
+                <input class="submit" type="submit" value="加入">
                 <input class="reset" type="reset" value="重設">
-                <input class="clear" type="submit" value="刪除">
             </div>
         </div>
     </div>
+
+
 
     <script>
         const months = ["January", "Febrary", "March", "April", "May", "June", "July", "Auguest", "September", "October", "November", "December"];
@@ -107,13 +111,12 @@
         const before = document.querySelector('.fa-angle-left')
         const after = document.querySelector('.fa-angle-right')
         const daylist = document.querySelector('.daylist')
-        const today = document.querySelector('.today')
+        const add = document.querySelector('.send')
+        const input = document.querySelector('.input')
         const close = document.querySelector('.close')
         const addCalendar = document.querySelector('.date')
-        const addEvent = document.querySelector('#addEvent')
         const submitBtn = document.querySelector('.submit')
         const resetBtn = document.querySelector('.reset')
-        const clearBtn = document.querySelector('.clear')
         const addTitle = document.querySelector('.calendar-title')
         const addTime = document.querySelector('.calendar-time')
         const textColor = document.querySelector('.text-color')
@@ -132,7 +135,6 @@
             setHeader()
             setDays()
             submit()
-            todayCSS()
         }
 
         before.addEventListener('click', () => {
@@ -156,18 +158,8 @@
         function setHeader() {
             showyear.innerText = year
             showmonth.innerText = months[month]
-            today.addEventListener('click', () => {
-                year = date.getFullYear()
-                month = date.getMonth()
-                firstdayOfWeek = new Date(year, month, 1).getDay()
-                showyear.innerText = year
-                showmonth.innerText = months[month]
-                setDays()
-                todayCSS()
-            })
         }
         function setDays() {
-            daylist.innerHTML = ""
             for (let i = 0; i < firstdayOfWeek; i++) {
                 let li = document.createElement('li')
                 afterDays = new Date(year, month, 0).getDate()
@@ -181,43 +173,9 @@
                 h3.innerText = i
                 h3.setAttribute('class', 'day-title')
                 li.setAttribute('class', 'day')
-                li.setAttribute('id', `${year}/${month + 1}/${i}`)
+                li.setAttribute('data-id', `${year}.${month + 1}.${i}`)
                 li.append(h3)
                 daylist.append(li)
-
-                //加入代辦事項
-                if (localStorage.getItem(`${year} / ${month + 1} / ${i}`) != null) {
-                    let todoList = JSON.parse(localStorage.getItem(`${year} / ${month + 1} / ${i}`))
-                    todoList.forEach((item, index) => {
-                        let p = document.createElement('p')
-                        p.innerText = item.title
-                        p.setAttribute('class', ' calendar-item')
-                        p.setAttribute('style', `color: ${item.textcolor};  background-color: ${item.bgcolor};`)
-                        li.append(p)
-
-
-                        p.onclick = () => {
-                            addCalendar.innerText = `${year} / ${month + 1} / ${i}`
-                            addEvent.setAttribute('style', 'display: flex;')
-                            addTitle.value = item.title
-                            addTime.value = item.time
-                            textColor.value = item.textcolor
-                            bgColor.value = item.bgcolor
-                            addEnter.value = item.enter
-                            clearBtn.onclick = () => {
-                                todoList.splice(index, 1)
-                                if (todoList.length != 0) {
-                                    localStorage.removeItem(`${year} / ${month + 1} / ${i}`)
-                                }
-                                localStorage.setItem(`${year} / ${month + 1} / ${i}`, JSON.stringify(todoList));
-                                addEvent.setAttribute('style', 'display: none;')
-                                setDays()
-                                sortOut()
-                            }
-                            event.stopPropagation()
-                        }
-                    })
-                }
             }
             if (firstdayOfWeek + days > 35) {
                 for (let i = 1; i <= 42 - (firstdayOfWeek + days); i++) {
@@ -238,13 +196,15 @@
             nowDay.forEach((nowday, index) => {
                 let nowDaytitle = document.querySelectorAll('.day-title')
                 nowday.addEventListener('click', () => {
-                    addEvent.setAttribute('style', 'display: flex;')
-                    sortOut()
+                    input.setAttribute('style', 'display: flex;')
                     addCalendar.innerText = `${year} / ${month + 1} / ${nowDaytitle[index].innerText}`
                 })
+                add.addEventListener('click', () => {
+                    input.setAttribute('style', 'display: flex;')
+                    addCalendar.innerText = `${year} / ${month + 1} / ${day}`
+                })
                 close.addEventListener('click', () => {
-                    addEvent.setAttribute('style', 'display: none;')
-                    sortOut()
+                    input.setAttribute('style', 'display: none;')
                 })
             })
         }
@@ -256,49 +216,33 @@
             setDays()
         }
 
-        function submit() {
-            submitBtn.onclick = function () {
-                let nowDayID = addCalendar.innerText
-                let addCalendarArr = {
-                    title: addTitle.value,
-                    time: addTime.value,
-                    textcolor: textColor.value,
-                    bgcolor: bgColor.value,
-                    enter: addEnter.value
+        function submit(){
+            nowDay = document.querySelectorAll('.day')
+            nowDay.forEach((nowday, index) => {
+                submitBtn.onclick = function () {
+                    //let nowdayID = document.querySelectorAll('.day')[index].dataset.id
+                    let addCalendarArr = {
+                        title: addTitle.value,
+                        time: addTime.value,
+                        textcolor: textColor.value,
+                        bgcolor: bgColor.value,
+                        enter: addEnter.value
+                    }
+                    localStorage.setItem(nowday.dataset.id, JSON.stringify(addCalendarArr))
+                    // let p = document.createElement('p')
+                    // p.innerText = addCalendarArr.title
+                    // p.setAttribute('class', ' calendar-item')
+                    // p.setAttribute('style', `color: ${addCalendarArr.textcolor};  background-color: ${addCalendarArr.bgcolor};`)
+                    // nowday.append(p)
                 }
-                let todoList = []
-                if (localStorage.getItem(nowDayID) == null) {
-                    todoList.push(addCalendarArr);
+
+                resetBtn.onclick = function () {
+                    localStorage.removeItem(nowday.dataset.id.innerText)
                 }
-                else {
-                    todoList = JSON.parse(localStorage.getItem(nowDayID));
-                    todoList.push(addCalendarArr);
-                }
-                localStorage.setItem(nowDayID, JSON.stringify(todoList))
-                addEvent.setAttribute('style', 'display: none;')
-                setDays()
-                sortOut()
-            }
-            resetBtn.onclick = function () {
-                sortOut()
-            }
+            })
         }
 
 
-        //清除addCalendarArr內容
-        function sortOut() {
-            addTitle.value = ''
-            addTime.value = ''
-            textColor.value = '#000000'
-            bgColor.value = '#ffffff'
-            addEnter.value = ''
-        }
-
-        //標示today
-        function todayCSS() {
-            let today = document.getElementById(`${year}/${month + 1}/${day}`)
-            today.setAttribute('style', 'box-shadow: 0 0 8px #2f3bdc;')
-        }
 
     </script>
 
