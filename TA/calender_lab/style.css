@@ -9,11 +9,12 @@ html {
     font-family: 'Edu NSW ACT Foundation', cursive;
 }
 
-.year {
+.container-top {
     margin-top: 10px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
     font-size: 24px;
-    text-align: right;
-    padding-right: 50px;
 }
 
 .months {
@@ -22,7 +23,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 30%;
 }
 
 .fa-solid {
@@ -66,15 +67,16 @@ html {
     margin: 3px 0.75%;
     padding: 5px;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow:auto;
 }
 
 .day {
     border: 1.5px solid #9297e0;
     cursor: pointer;
+}
+.day-title{
     font-size: 14px;
 }
-
 .day-ruleout {
     border: 1.5px solid #b8bae0;
     color: #b8bae0;
@@ -82,9 +84,10 @@ html {
 }
 
 @media screen and (max-width: 767px) {
-    .day {
+    .day-title {
         font-size: 12px;
     }
+
     .day-ruleout {
         font-size: 10px;
     }
@@ -142,4 +145,12 @@ html {
 
 .calendar .add input {
     cursor: pointer;
+}
+
+.calendar-item{
+    border-radius: 10px;
+    color: #000;
+    background-color: #fff;
+    font-size: 12px;
+    margin-bottom: 1px;
 }

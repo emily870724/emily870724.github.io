@@ -19,7 +19,10 @@
 
 <body>
     <header class="container">
-        <div class="year">Year</div>
+        <div class="container-top">
+            <h1 class="title">Container</h1>
+            <h2 class="year">Year</h2>
+        </div>
         <div class="months">
             <i class="fa-solid fa-angle-left"></i>
             <h2 class="month">Month</h2>
@@ -73,23 +76,25 @@
             </label>
             <label>
                 <span>標題 : </span>
-                <input type="text" placeholder="標題">
+                <input class="calendar-title" type="text" placeholder="標題">
             </label>
             <label>
                 <span>行程時間 : </span>
-                <input type="time">
+                <input class="calendar-time" type="time">
             </label>
             <label>
+                <span>文字 : </span>
+                <input class="text-color" type="color">
                 <span>標記 : </span>
-                <input type="color">
+                <input class="bg-color" type="color">
             </label>
             <label>
                 <span>代辦事項 : </span>
                 <textarea placeholder="" class="enter" id="" rows="8" maxlength="100"></textarea>
             </label>
             <div class="add">
-                <input type="submit" value="加入">
-                <input type="reset" value="重設">
+                <input class="submit" type="submit" value="加入">
+                <input class="reset" type="reset" value="重設">
             </div>
         </div>
     </div>
@@ -99,7 +104,7 @@
     <script>
         const months = ["January", "Febrary", "March", "April", "May", "June", "July", "Auguest", "September", "October", "November", "December"];
         let date, year, month, day, dayOfWeek, firstdayOfWeek, days, afterDays
-
+        let nowDay
         //DOM
         const showyear = document.querySelector('.year')
         const showmonth = document.querySelector('.month')
@@ -110,11 +115,16 @@
         const input = document.querySelector('.input')
         const close = document.querySelector('.close')
         const addCalendar = document.querySelector('.date')
-        const submit = document.querySelector('.submit')
-        const reset = document.querySelector('.reset')
+        const submitBtn = document.querySelector('.submit')
+        const resetBtn = document.querySelector('.reset')
+        const addTitle = document.querySelector('.calendar-title')
+        const addTime = document.querySelector('.calendar-time')
+        const textColor = document.querySelector('.text-color')
+        const bgColor = document.querySelector('.bg-color')
+        const addEnter = document.querySelector('.enter')
 
         //window.onload
-        window.onload = () => {
+        window.onload = function () {
             date = new Date()
             year = date.getFullYear()
             month = date.getMonth()
@@ -124,7 +134,9 @@
             days = new Date(year, month + 1, 0).getDate()
             setHeader()
             setDays()
+            submit()
         }
+
         before.addEventListener('click', () => {
             month--
             if (month < 0) {
@@ -157,8 +169,12 @@
             }
             for (let i = 1; i <= days; i++) {
                 let li = document.createElement('li')
-                li.innerText = i
+                let h3 = document.createElement('h3')
+                h3.innerText = i
+                h3.setAttribute('class', 'day-title')
                 li.setAttribute('class', 'day')
+                li.setAttribute('data-id', `${year}.${month + 1}.${i}`)
+                li.append(h3)
                 daylist.append(li)
             }
             if (firstdayOfWeek + days > 35) {
@@ -176,11 +192,12 @@
                     daylist.append(li)
                 }
             }
-            const nowDay = document.querySelectorAll('.day')
-            nowDay.forEach(nowday => {
+            nowDay = document.querySelectorAll('.day')
+            nowDay.forEach((nowday, index) => {
+                let nowDaytitle = document.querySelectorAll('.day-title')
                 nowday.addEventListener('click', () => {
                     input.setAttribute('style', 'display: flex;')
-                    addCalendar.innerText = `${year} / ${month + 1} / ${nowday.innerHTML}`
+                    addCalendar.innerText = `${year} / ${month + 1} / ${nowDaytitle[index].innerText}`
                 })
                 add.addEventListener('click', () => {
                     input.setAttribute('style', 'display: flex;')
@@ -198,6 +215,35 @@
             daylist.innerHTML = ''
             setDays()
         }
+
+        function submit(){
+            nowDay = document.querySelectorAll('.day')
+            nowDay.forEach((nowday, index) => {
+                submitBtn.onclick = function () {
+                    //let nowdayID = document.querySelectorAll('.day')[index].dataset.id
+                    let addCalendarArr = {
+                        title: addTitle.value,
+                        time: addTime.value,
+                        textcolor: textColor.value,
+                        bgcolor: bgColor.value,
+                        enter: addEnter.value
+                    }
+                    localStorage.setItem(nowday.dataset.id, JSON.stringify(addCalendarArr))
+                    // let p = document.createElement('p')
+                    // p.innerText = addCalendarArr.title
+                    // p.setAttribute('class', ' calendar-item')
+                    // p.setAttribute('style', `color: ${addCalendarArr.textcolor};  background-color: ${addCalendarArr.bgcolor};`)
+                    // nowday.append(p)
+                }
+
+                resetBtn.onclick = function () {
+                    localStorage.removeItem(nowday.dataset.id.innerText)
+                }
+            })
+        }
+
+
+
     </script>
 
 </body>
