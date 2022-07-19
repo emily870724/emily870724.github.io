@@ -27,10 +27,10 @@
 <body>
     <header class="container">
         <div class="container-top">
-            <h1 class="title" onclick="changeTitle()">My Container</h1>
+            <h1 class="title">My Container</h1>
             <div>
                 <h2 class="year">Year</h2>
-                <input class="changeMonth" type="month" required="required">
+                <input class="changeMonth" type="month">
                 <i class="fa-solid fa-circle-check" onclick="changeMonth()"></i>
             </div>
         </div>
@@ -108,24 +108,11 @@
         </div>
     </div>
 
-    <div class="titleInput">
-        <label>
-            <span>Calendar Title</span>
-            <input class="changetitle" type="text" placeholder="更改行事曆標題" maxlength="10">
-            <input class="change" type="submit" value="修改">
-        </label>
-    </div>
-
     <script>
         const months = ["January", "Febrary", "March", "April", "May", "June", "July", "Auguest", "September", "October", "November", "December"];
         let date, year, month, day, dayOfWeek, firstdayOfWeek, days, afterDays
         let nowDay
         //DOM
-        let Calendartitle = document.querySelector('.title')
-        const titleInput = document.querySelector('.titleInput')
-        const change = document.querySelector('.change')
-        let changetitle = document.querySelector('.changetitle')
-
         const showyear = document.querySelector('.year')
         const showmonth = document.querySelector('.month')
         let changemonth = document.querySelector('.changeMonth')
@@ -147,9 +134,6 @@
 
         //window.onload
         window.onload = function () {
-            if (localStorage.getItem('Calendar-Title') != null) {
-                Calendartitle.innerHTML = JSON.parse(localStorage.getItem('Calendar-Title'))
-            }
             date = new Date()
             year = date.getFullYear()
             month = date.getMonth()
@@ -344,23 +328,6 @@
             }
         }
 
-        //設定changeTitle
-        function changeTitle() {
-            titleInput.setAttribute('style', 'display: flex;')
-            change.onclick = function () {
-                if (changetitle.value !== '') {
-                    let val = changetitle.value
-                    localStorage.setItem('Calendar-Title', JSON.stringify(val))
-                    Calendartitle.innerHTML = JSON.parse(localStorage.getItem('Calendar-Title'))
-                    titleInput.setAttribute('style', 'display: none;')
-                }else{
-                    let val = 'My Container'
-                    localStorage.setItem('Calendar-Title', JSON.stringify(val))
-                    Calendartitle.innerHTML = JSON.parse(localStorage.getItem('Calendar-Title'))
-                    titleInput.setAttribute('style', 'display: none;')
-                }
-            }
-        }
 
         //設定changeMonth
         function changeMonth() {
