@@ -233,8 +233,15 @@
                     li.setAttribute('class', ' day-ruleout')
                     daylist.append(li)
                 }
-            } else {
+            } else if (firstdayOfWeek + days > 28) {
                 for (let i = 1; i <= 35 - (firstdayOfWeek + days); i++) {
+                    let li = document.createElement('li')
+                    li.innerText = i
+                    li.setAttribute('class', ' day-ruleout')
+                    daylist.append(li)
+                }
+            } else {
+                for (let i = 1; i <= 28 - (firstdayOfWeek + days); i++) {
                     let li = document.createElement('li')
                     li.innerText = i
                     li.setAttribute('class', ' day-ruleout')
