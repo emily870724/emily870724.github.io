@@ -4,9 +4,9 @@ html {
 
 .container {
     max-width: 1000px;
-    margin: 15px auto 0;
+    margin: auto;
     padding: 0 30px;
-    font-family: 'Edu NSW ACT Foundation','Edu VIC WA NT Beginner', cursive;
+    font-family: 'Edu NSW ACT Foundation', cursive;
     position: relative;
 }
 
@@ -17,9 +17,6 @@ html {
     justify-content: space-between;
     font-size: 24px;
 }
-.title{
-    font-family: 'Edu VIC WA NT Beginner', cursive;
-}
 
 .months {
     margin-bottom: 10px;
@@ -27,7 +24,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 25%;
+    padding: 0 30%;
 }
 
 .fa-solid {
