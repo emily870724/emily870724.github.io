@@ -367,9 +367,7 @@
         function changeMonth() {
             year = changemonth.value.substr(0, 4)
             month = `${Number(changemonth.value.substr(5, 7)) - 1}`
-            console.log(month)
             firstdayOfWeek = new Date(year, month, 1).getDay()
-            console.log(days)
             showyear.innerText = year
             showmonth.innerText = months[month]
             setDays()
