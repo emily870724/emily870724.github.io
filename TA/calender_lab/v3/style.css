@@ -20,22 +20,7 @@ html {
 .title{
     font-family: 'Edu VIC WA NT Beginner', cursive;
 }
-.year{
-    display: inline-block;
-}
-.changeMonth{
-    width: 18px;
-    outline: none;
-    border: none;
-    background-color: transparent;
-}
-.fa-circle-check{
-    font-size: 12px;
-    background-color: #8e8ef0;
-    border-radius: 50%;
-    color:#e6e6fa;
-    position: absolute;
-}
+
 .months {
     margin-bottom: 10px;
     font-size: 36px;

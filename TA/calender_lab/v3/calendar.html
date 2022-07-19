@@ -28,11 +28,7 @@
     <header class="container">
         <div class="container-top">
             <h1 class="title">My Container</h1>
-            <div>
-                <h2 class="year">Year</h2>
-                <input class="changeMonth" type="month" required="required" onclick="changeMonth()">
-                <i class="fa-solid fa-circle-check" onclick="changeMonth()"></i>
-            </div>
+            <h2 class="year">Year</h2>
         </div>
         <div class="months">
             <i class="fa-solid fa-angle-left"></i>
@@ -98,7 +94,7 @@
             </label>
             <label>
                 <span>備註 : </span>
-                <textarea placeholder="" class="enter" id="" rows="5" maxlength="100"></textarea>
+                <textarea placeholder="" class="enter" id="" rows="8" maxlength="100"></textarea>
             </label>
             <div class="add">
                 <input class="submit" type="submit" value="新增">
@@ -115,7 +111,6 @@
         //DOM
         const showyear = document.querySelector('.year')
         const showmonth = document.querySelector('.month')
-        let changemonth = document.querySelector('.changeMonth')
         const before = document.querySelector('.fa-angle-left')
         const after = document.querySelector('.fa-angle-right')
         const daylist = document.querySelector('.daylist')
@@ -141,11 +136,6 @@
             dayOfWeek = date.getDay()
             firstdayOfWeek = new Date(year, month, 1).getDay()
             days = new Date(year, month + 1, 0).getDate()
-            if (month < 10) {
-                changemonth.value = `${year}-0${month + 1}`
-            } else {
-                changemonth.value = `${year}-${month}`
-            }
             setHeader()
             setDays()
             submit()
@@ -159,7 +149,6 @@
                 year--
             }
             resetData()
-            todayCSS()
         })
         after.addEventListener('click', () => {
             month++
@@ -168,7 +157,6 @@
                 year++
             }
             resetData()
-            todayCSS()
         })
 
         //function
@@ -186,7 +174,6 @@
             })
         }
         function setDays() {
-            month = Number(month)
             daylist.innerHTML = ""
             for (let i = 0; i < firstdayOfWeek; i++) {
                 let li = document.createElement('li')
@@ -311,6 +298,7 @@
             }
         }
 
+
         //清除addCalendarArr內容
         function sortOut() {
             addTitle.value = ''
@@ -322,24 +310,10 @@
 
         //標示today
         function todayCSS() {
-            if (year == date.getFullYear() && month == date.getMonth()) {
-                let today = document.getElementById(`${year}/${month + 1}/${day}`)
-                today.setAttribute('style', 'box-shadow: 0 0 8px #2f3bdc;')
-            }
+            let today = document.getElementById(`${year}/${month + 1}/${day}`)
+            today.setAttribute('style', 'box-shadow: 0 0 8px #2f3bdc;')
         }
 
-
-        //設定changeMonth
-        function changeMonth() {
-            year = changemonth.value.substr(0, 4)
-            month = `${Number(changemonth.value.substr(5, 7)) - 1}`
-            console.log(typeof month)
-            firstdayOfWeek = new Date(year, month, 1).getDay()
-            showyear.innerText = year
-            showmonth.innerText = months[month]
-            setDays()
-            todayCSS()
-        }
     </script>
 
 </body>
