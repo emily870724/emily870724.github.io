@@ -26,19 +26,12 @@
 
 <body>
     <header class="container">
-        <div class="calendar-top">
+        <div class="container-top">
             <h1 class="title" onclick="changeTitle()">My Calendar</h1>
             <div>
                 <h2 class="year">Year</h2>
-                <i class="fa-solid fa-calendar-day" onclick="openMonthInput()"></i>
-                <!-- <input class="changeMonth" type="month" required="required">
-                <i class="fa-solid fa-circle-check" onclick="changeMonth()"></i> -->
-                <div class="changeMonthInput">
-                    <label>
-                        <input class="changeMonth" type="month" required="required">
-                        <i class="fa-solid fa-circle-check" onclick="changeMonth()"></i>
-                    </label>
-                </div>
+                <input class="changeMonth" type="month" required="required">
+                <i class="fa-solid fa-circle-check" onclick="changeMonth()"></i>
             </div>
         </div>
         <div class="months">
@@ -47,7 +40,7 @@
             <i class="fa-solid fa-angle-right"></i>
         </div>
     </header>
-    <main class="container calendar-content">
+    <main class="container">
         <ul class="weeklist row">
             <li class="week">
                 <img src="./img/week-bg-900--.png" alt="">
@@ -118,9 +111,8 @@
     <div class="titleInput">
         <label>
             <span>Calendar Title</span>
-            <input class="changetitle" type="text" placeholder="My Calendar" maxlength="10">
-            <i class="change fa-solid fa-circle-check"></i>
-            <!-- <input class="change" type="submit" value="修改"> -->
+            <input class="changetitle" type="text" placeholder="更改行事曆標題" maxlength="10">
+            <input class="change" type="submit" value="修改">
         </label>
     </div>
 
@@ -136,9 +128,7 @@
 
         const showyear = document.querySelector('.year')
         const showmonth = document.querySelector('.month')
-        const changeMonthInput =document.querySelector('.changeMonthInput')
         let changemonth = document.querySelector('.changeMonth')
-
         const before = document.querySelector('.fa-angle-left')
         const after = document.querySelector('.fa-angle-right')
         const daylist = document.querySelector('.daylist')
@@ -213,7 +203,7 @@
         }
         function setDays() {
             month = Number(month)
-            days = new Date(year, Number(month + 1), 0).getDate()
+            days = new Date(year, Number( month + 1), 0).getDate()
             daylist.innerHTML = ""
             for (let i = 0; i < firstdayOfWeek; i++) {
                 let li = document.createElement('li')
@@ -364,7 +354,7 @@
                     localStorage.setItem('Calendar-Title', JSON.stringify(val))
                     Calendartitle.innerHTML = JSON.parse(localStorage.getItem('Calendar-Title'))
                     titleInput.setAttribute('style', 'display: none;')
-                } else {
+                }else{
                     let val = 'My Calendar'
                     localStorage.setItem('Calendar-Title', JSON.stringify(val))
                     Calendartitle.innerHTML = JSON.parse(localStorage.getItem('Calendar-Title'))
@@ -374,21 +364,14 @@
         }
 
         //設定changeMonth
-        function openMonthInput(){
-            changeMonthInput.setAttribute('style', 'display: flex;')
-        }
-
         function changeMonth() {
             year = changemonth.value.substr(0, 4)
             month = `${Number(changemonth.value.substr(5, 7)) - 1}`
-            console.log(month)
             firstdayOfWeek = new Date(year, month, 1).getDay()
-            console.log(days)
             showyear.innerText = year
             showmonth.innerText = months[month]
             setDays()
             todayCSS()
-            changeMonthInput.setAttribute('style', 'display: none;')
         }
     </script>
 

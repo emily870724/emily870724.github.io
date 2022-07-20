@@ -2,69 +2,41 @@ html {
     background-color: lavender;
 }
 
-.fa-solid {
-    font-size: 20px;
-    cursor: pointer;
-}
-
 .container {
     max-width: 1000px;
     margin: 15px auto 0;
     padding: 0 30px;
-    font-family: 'Edu NSW ACT Foundation', 'Edu VIC WA NT Beginner', cursive;
+    font-family: 'Edu NSW ACT Foundation','Edu VIC WA NT Beginner', cursive;
     position: relative;
 }
 
-.calendar-top {
+.container-top {
     margin-bottom: 15px;
     padding: 0 10px;
     display: flex;
     justify-content: space-between;
     font-size: 24px;
 }
-
-.title {
+.title{
     font-family: 'Edu VIC WA NT Beginner', cursive;
     cursor: pointer;
 }
-
-.year {
+.year{
     display: inline-block;
 }
-
-.fa-calendar-day {
-    font-size: 14px;
-}
-
-.changeMonthInput {
-    position: absolute;
-    top: 34px;
-    right: 25px;
-    background-color: #8e8ef0;
-    box-shadow: 0 0 12px #66666a;
-    opacity: 90%;
-    padding: 0px 10px 5px;
-    border-radius: 50px;
-    /* display: flex; */
-    align-items: center;
-    z-index: 1;
-    display: none;
-}
-
-.changeMonth {
-    /* width: 18px; */
+.changeMonth{
+    width: 18px;
     outline: none;
     border: none;
     background-color: transparent;
 }
-
-.fa-circle-check {
-    font-size: 16px;
+.fa-circle-check{
+    font-size: 12px;
     background-color: #8e8ef0;
     border-radius: 50%;
-    color: #e6e6fa;
+    color:#e6e6fa;
+    position: absolute;
 }
-
 .months {
     margin-bottom: 10px;
     font-size: 36px;
@@ -72,6 +44,11 @@ html {
     justify-content: space-between;
     align-items: center;
     padding: 0 25%;
+}
+
+.fa-solid {
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .row {
@@ -98,7 +75,6 @@ html {
     top: 30%;
     left: 0;
     right: 0;
-    font-size: 18px;
 }
 
 .daylist {
@@ -227,7 +203,7 @@ html {
 
 }
 
-.titleInput {
+.titleInput{
     position: absolute;
     top: 50px;
     left: 20px;
@@ -240,15 +216,16 @@ html {
     align-items: center;
     display: none;
 }
-
-.changetitle {
+.changetitle{
     border-radius: 10px;
     border: none;
     outline: none;
     padding: 2px 10px;
 }
-
-.change {
+.change{
     position: relative;
-    top: 2px;
+    top: 1px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
 }
