@@ -31,8 +31,6 @@
             <div>
                 <h2 class="year">Year</h2>
                 <i class="fa-solid fa-calendar-day" onclick="openMonthInput()"></i>
-                <!-- <input class="changeMonth" type="month" required="required">
-                <i class="fa-solid fa-circle-check" onclick="changeMonth()"></i> -->
                 <div class="changeMonthInput">
                     <label>
                         <input class="changeMonth" type="month" required="required" max="9999-12">
@@ -91,7 +89,7 @@
             </label>
             <label>
                 <span>行程 : </span>
-                <input class="calendar-title" type="text" placeholder="標題">
+                <input class="calendar-title" type="text" placeholder="標題" maxlength="10">
             </label>
             <label>
                 <span>行程時間 : </span>
@@ -100,7 +98,7 @@
             <label>
                 <span>文字 : </span>
                 <input class="text-color" type="color">
-                <span>標記 : </span>
+                <span class="bg-color-text">標記 : </span>
                 <input class="bg-color" type="color" value="#ffffff">
             </label>
             <label>
@@ -108,12 +106,9 @@
                 <textarea placeholder="" class="enter" id="" rows="5" maxlength="100"></textarea>
             </label>
             <div class="add">
-                <!-- <input class="submit" type="submit" value="新增"> -->
                 <i class="fa-solid fa-calendar-check submit"><span>新增</span></i>
-                <!-- <input class="reset" type="reset" value="重設"> -->
                 <i class="fa-solid fa-arrows-rotate reset"><span>重設
-                </span></i>
-                <!-- <input class="clear" type="submit" value="刪除"> -->
+                    </span></i>
                 <i class="fa-solid fa-trash-can clear"><span>刪除</span></i>
             </div>
         </div>
@@ -124,7 +119,6 @@
             <span>Calendar Title</span>
             <input class="changetitle" type="text" placeholder="My Calendar" maxlength="10">
             <i class="change fa-solid fa-circle-check"></i>
-            <!-- <input class="change" type="submit" value="修改"> -->
         </label>
     </div>
 
@@ -140,7 +134,7 @@
 
         const showyear = document.querySelector('.year')
         const showmonth = document.querySelector('.month')
-        const changeMonthInput =document.querySelector('.changeMonthInput')
+        const changeMonthInput = document.querySelector('.changeMonthInput')
         let changemonth = document.querySelector('.changeMonth')
 
         const before = document.querySelector('.fa-angle-left')
@@ -378,7 +372,7 @@
         }
 
         //設定changeMonth
-        function openMonthInput(){
+        function openMonthInput() {
             changeMonthInput.setAttribute('style', 'display: flex;')
         }
 

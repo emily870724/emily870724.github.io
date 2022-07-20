@@ -172,6 +172,7 @@ html {
     right: 0;
     left: 0;
     width: 50%;
+    min-width: 220px;
     max-width: 250px;
     background-color: #8e8ef0;
     opacity: 90%;
@@ -199,7 +200,15 @@ html {
 
 .calendar span {
     margin-bottom: 5px;
+    margin-right: 5px;
     display: inline-block;
+}
+
+.calendar-title {
+    width: 150px;
+}
+.bg-color-text{
+    margin-left: 5px;
 }
 
 .date {
@@ -220,6 +229,7 @@ html {
     color: rgb(85, 85, 85);
     position: relative;
 }
+
 .calendar .add i span {
     position: absolute;
     top: -35px;
@@ -235,10 +245,11 @@ html {
     transition: 1s;
 }
 
-.calendar .add i:hover{
+.calendar .add i:hover {
     text-shadow: 0 0 1px #000;
 }
-.calendar .add i:hover span{
+
+.calendar .add i:hover span {
     top: -35px;
     display: block;
 }
