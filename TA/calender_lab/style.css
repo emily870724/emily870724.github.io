@@ -52,10 +52,10 @@ html {
 }
 
 .changeMonth {
-    /* width: 18px; */
     outline: none;
     border: none;
     background-color: transparent;
+    cursor: text;
 }
 
 .fa-circle-check {
