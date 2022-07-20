@@ -180,6 +180,7 @@ html {
     display: none;
     box-shadow: 0 0 12px #66666a;
     overflow: auto;
+    border-radius: 20px;
 }
 
 .close {
