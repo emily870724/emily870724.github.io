@@ -366,7 +366,7 @@
         //設定changeMonth
         function changeMonth() {
             year = changemonth.value.substr(0, 4)
-            month = `${Number(changemonth.value.substr(5, 7)) - 1}`
+            month = `${Number(changemonth.value.substr(5, 2)) - 1}`
             firstdayOfWeek = new Date(year, month, 1).getDay()
             showyear.innerText = year
             showmonth.innerText = months[month]
