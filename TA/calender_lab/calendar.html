@@ -35,7 +35,7 @@
                 <i class="fa-solid fa-circle-check" onclick="changeMonth()"></i> -->
                 <div class="changeMonthInput">
                     <label>
-                        <input class="changeMonth" type="month" required="required">
+                        <input class="changeMonth" type="month" required="required" max="9999-12">
                         <i class="fa-solid fa-circle-check" onclick="changeMonth()"></i>
                     </label>
                 </div>
@@ -380,7 +380,7 @@
 
         function changeMonth() {
             year = changemonth.value.substr(0, 4)
-            month = `${Number(changemonth.value.substr(5, 7)) - 1}`
+            month = `${Number(changemonth.value.substr(5, 2)) - 1}`
             console.log(month)
             firstdayOfWeek = new Date(year, month, 1).getDay()
             console.log(days)
