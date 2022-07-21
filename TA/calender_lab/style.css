@@ -11,7 +11,8 @@ html {
     max-width: 1000px;
     margin: 15px auto 0;
     padding: 0 30px;
-    font-family: 'Edu NSW ACT Foundation', 'Edu VIC WA NT Beginner', cursive;
+    /* font-family: 'Edu NSW ACT Foundation', 'Edu VIC WA NT Beginner', cursive; */
+    font-family: 'Edu NSW ACT Foundation', 'Edu VIC WA NT Beginner', serif,Sans-Serif;
     position: relative;
 }
 
@@ -24,7 +25,7 @@ html {
 }
 
 .title {
-    font-family: 'Edu VIC WA NT Beginner', cursive;
+    /* font-family: 'Edu VIC WA NT Beginner', cursive; */
     cursor: pointer;
 }
 
