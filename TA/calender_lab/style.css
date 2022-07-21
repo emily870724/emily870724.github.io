@@ -118,7 +118,7 @@ html {
 .day {
     border: 1.5px solid #9297e0;
     cursor: pointer;
-    background-color: rgb(240, 240, 250);
+    background-color: rgb(237, 237, 255);
 }
 
 .day:hover {
