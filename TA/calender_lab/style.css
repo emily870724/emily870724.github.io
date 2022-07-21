@@ -112,11 +112,13 @@ html {
     padding: 5px;
     box-sizing: border-box;
     overflow: hidden;
+    border-radius: 3px;
 }
 
 .day {
     border: 1.5px solid #9297e0;
     cursor: pointer;
+    background-color: rgb(240, 240, 250);
 }
 
 .day:hover {
