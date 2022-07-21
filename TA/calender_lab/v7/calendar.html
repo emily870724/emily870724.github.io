@@ -173,7 +173,7 @@
             setHeader()
             setDays()
             submit()
-            // todayCSS()
+            todayCSS()
         }
 
         before.addEventListener('click', () => {
@@ -183,7 +183,7 @@
                 year--
             }
             resetData()
-            // todayCSS()
+            todayCSS()
         })
         after.addEventListener('click', () => {
             month++
@@ -192,7 +192,7 @@
                 year++
             }
             resetData()
-            // todayCSS()
+            todayCSS()
         })
 
         //function
@@ -206,7 +206,7 @@
                 showyear.innerText = year
                 showmonth.innerText = months[month]
                 setDays()
-                // todayCSS()
+                todayCSS()
             })
         }
         function setDays() {
@@ -299,7 +299,7 @@
                     sortOut()
                 })
             })
-            // todayCSS()
+            todayCSS()
         }
         function resetData() {
             setHeader()
@@ -386,7 +386,7 @@
             showyear.innerText = year
             showmonth.innerText = months[month]
             setDays()
-            // todayCSS()
+            todayCSS()
             changeMonthInput.setAttribute('style', 'display: none;')
         }
     </script>
