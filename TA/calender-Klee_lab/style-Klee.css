@@ -8,8 +8,8 @@ html {
 @media screen and (max-width: 400px) {
     html {
         background-image: url(./圖片2.jpg);
-        background-size: 130%;
-        background-position: center -50px;
+        background-size: 120%;
+        background-position: center -80px;
     }
 }
 
@@ -113,7 +113,11 @@ html {
 .daylist {
     min-height: 400px;
 }
-
+@media screen and (max-width: 400px) {
+    .daylist {
+        min-height: 300px;
+    }
+}
 .day,
 .day-ruleout {
     width: 12.5%;
