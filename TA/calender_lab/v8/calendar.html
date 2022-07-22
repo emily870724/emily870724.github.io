@@ -106,9 +106,9 @@
                 <textarea placeholder="" class="enter" id="" rows="5" maxlength="100"></textarea>
             </label>
             <div class="add">
-                <i class="fa-solid fa-arrows-rotate reset"><span>清空</span></i>
-                <i class="fa-solid fa-calendar-plus submit"><span>新增</span></i>
-                <i class="fa-solid fa-floppy-disk alter"><span>修改</span></i>
+                <i class="fa-solid fa-calendar-check submit"><span>新增</span></i>
+                <i class="fa-solid fa-arrows-rotate reset"><span>重設
+                    </span></i>
                 <i class="fa-solid fa-trash-can clear"><span>刪除</span></i>
             </div>
         </div>
@@ -144,12 +144,9 @@
         const close = document.querySelector('.close')
         const addCalendar = document.querySelector('.date')
         const addEvent = document.querySelector('#addEvent')
-
         const submitBtn = document.querySelector('.submit')
-        const alterBtn = document.querySelector('.alter')
         const resetBtn = document.querySelector('.reset')
         const clearBtn = document.querySelector('.clear')
-
         const addTitle = document.querySelector('.calendar-title')
         const addTime = document.querySelector('.calendar-time')
         const textColor = document.querySelector('.text-color')
@@ -240,12 +237,10 @@
                         p.setAttribute('style', `color: ${item.textcolor};  background-color: ${item.bgcolor};`)
                         li.append(p)
 
+
                         p.onclick = () => {
                             addCalendar.innerText = `${year} / ${month + 1} / ${i}`
                             addEvent.setAttribute('style', 'display: flex;')
-                            submitBtn.setAttribute('style', 'display: none;')
-                            alterBtn.setAttribute('style', 'display: inline;')
-                            clearBtn.setAttribute('style', 'display: inline;')
                             addTitle.value = item.title
                             addTime.value = item.time
                             textColor.value = item.textcolor
@@ -257,20 +252,6 @@
                                     localStorage.removeItem(`${year} / ${month + 1} / ${i}`)
                                 }
                                 localStorage.setItem(`${year} / ${month + 1} / ${i}`, JSON.stringify(todoList));
-                                addEvent.setAttribute('style', 'display: none;')
-                                setDays()
-                                sortOut()
-                            }
-                            alterBtn.onclick = () => {
-                                todoList = JSON.parse(localStorage.getItem(addCalendar.innerText));
-                                todoList[index] = {
-                                    title: addTitle.value,
-                                    time: addTime.value,
-                                    textcolor: textColor.value,
-                                    bgcolor: bgColor.value,
-                                    enter: addEnter.value
-                                }
-                                localStorage.setItem(addCalendar.innerText, JSON.stringify(todoList));
                                 addEvent.setAttribute('style', 'display: none;')
                                 setDays()
                                 sortOut()
@@ -307,9 +288,6 @@
                 let nowDaytitle = document.querySelectorAll('.day-title')
                 nowday.addEventListener('click', () => {
                     addEvent.setAttribute('style', 'display: flex;')
-                    submitBtn.setAttribute('style', 'display: inline;')
-                    alterBtn.setAttribute('style', 'display: none;')
-                    clearBtn.setAttribute('style', 'display: none;')
                     sortOut()
                     addCalendar.innerText = `${year} / ${month + 1} / ${nowDaytitle[index].innerText}`
                 })

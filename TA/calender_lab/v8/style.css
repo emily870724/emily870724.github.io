@@ -12,7 +12,7 @@ html {
     margin: 15px auto 0;
     padding: 0 30px;
     /* font-family: 'Edu NSW ACT Foundation', 'Edu VIC WA NT Beginner', cursive; */
-    font-family: 'Edu NSW ACT Foundation', 'Edu VIC WA NT Beginner', serif, Sans-Serif;
+    font-family: 'Edu NSW ACT Foundation', 'Edu VIC WA NT Beginner', serif,Sans-Serif;
     position: relative;
 }
 
@@ -210,8 +210,7 @@ html {
 .calendar-title {
     width: 150px;
 }
-
-.bg-color-text {
+.bg-color-text{
     margin-left: 5px;
 }
 
@@ -225,9 +224,7 @@ html {
 }
 
 .calendar .add {
-    margin: -10px auto auto;
     text-align: right;
-    position: relative;
 }
 
 .calendar .add i {
@@ -236,14 +233,10 @@ html {
     position: relative;
 }
 
-.calendar .add .reset {
-    position: absolute;
-    left: 0;
-}
-
 .calendar .add i span {
     position: absolute;
-    left: 13px;
+    top: -35px;
+    left: 10px;
     font-size: 12px;
     color: #fff;
     opacity: 90%;
@@ -254,6 +247,7 @@ html {
     display: none;
     transition: 1s;
 }
+
 .calendar .add i:hover {
     text-shadow: 0 0 1px #000;
 }
