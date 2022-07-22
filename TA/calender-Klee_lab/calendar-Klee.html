@@ -27,7 +27,7 @@
 <body>
     <header class="container">
         <div class="calendar-top">
-            <h1 class="title" onclick="changeTitle()">可莉想要出去玩</h1>
+            <h1 class="title" onclick="changeTitle()">好想出去玩 _(:3 」∠ )_</h1>
             <div>
                 <h2 class="year">Year</h2>
                 <i class="fa-solid fa-calendar-day" onclick="openMonthInput()"></i>
@@ -117,7 +117,7 @@
     <div class="titleInput">
         <label>
             <span>Calendar Title</span>
-            <input class="changetitle" type="text" placeholder="這是可莉的!!" maxlength="10">
+            <input class="changetitle" type="text" placeholder="ㅍ_ㅍ 快排行程!!" maxlength="10">
             <i class="change fa-solid fa-circle-check"></i>
         </label>
     </div>
@@ -383,7 +383,7 @@
                     Calendartitle.innerHTML = JSON.parse(localStorage.getItem('Calendar-Title'))
                     titleInput.setAttribute('style', 'display: none;')
                 } else {
-                    let val = '可莉的出遊趣'
+                    let val = '快樂出遊去٩(◦`꒳´◦)۶'
                     localStorage.setItem('Calendar-Title', JSON.stringify(val))
                     Calendartitle.innerHTML = JSON.parse(localStorage.getItem('Calendar-Title'))
                     titleInput.setAttribute('style', 'display: none;')
