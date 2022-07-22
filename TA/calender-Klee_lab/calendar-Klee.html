@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style-Klee.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/a54152b54f.js" crossorigin="anonymous"></script>
+    <title>行事曆</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="calendar-top">
+            <h1 class="title" onclick="changeTitle()">My Calendar</h1>
+            <div>
+                <h2 class="year">Year</h2>
+                <i class="fa-solid fa-calendar-day" onclick="openMonthInput()"></i>
+                <div class="changeMonthInput">
+                    <label>
+                        <input class="changeMonth" type="month" required="required" max="9999-12">
+                        <i class="fa-solid fa-circle-check" onclick="changeMonth()"></i>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="months">
+            <i class="fa-solid fa-angle-left"></i>
+            <h2 class="month">Month</h2>
+            <i class="fa-solid fa-angle-right"></i>
+        </div>
+    </header>
+    <main class="container calendar-content">
+        <ul class="weeklist row">
+            <li class="week">
+                <img src="./week-bg-yellow3.png" alt="">
+                <h2>Sun</h2>
+            </li>
+            <li class="week">
+                <img src="./week-bg-yellow2.png" alt="">
+                <h2>Mon</h2>
+            </li>
+            <li class="week">
+                <img src="./week-bg-yellow2.png" alt="">
+                <h2>Tue</h2>
+            </li>
+            <li class="week">
+                <img src="./week-bg-yellow2.png" alt="">
+                <h2>Wed</h2>
+            </li>
+            <li class="week">
+                <img src="./week-bg-yellow2.png" alt="">
+                <h2>Fri</h2>
+            </li>
+            <li class="week">
+                <img src="./week-bg-yellow2.png" alt="">
+                <h2>Fri</h2>
+            </li>
+            <li class="week">
+                <img src="./week-bg-yellow3.png" alt="">
+                <h2>Sat</h2>
+            </li>
+        </ul>
+        <ul class="daylist row"></ul>
+        <div class="today">today</div>
+    </main>
+    <div class="input" id="addEvent">
+        <div class="close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="calendar">
+            <label>
+                <span class="date"></span>
+            </label>
+            <label>
+                <span>行程 : </span>
+                <input class="calendar-title" type="text" placeholder="標題" maxlength="10">
+            </label>
+            <label>
+                <span>行程時間 : </span>
+                <input class="calendar-time" type="time">
+            </label>
+            <label>
+                <span>文字 : </span>
+                <input class="text-color" type="color">
+                <span class="bg-color-text">標記 : </span>
+                <input class="bg-color" type="color" value="#ffffff">
+            </label>
+            <label>
+                <span>備註 : </span>
+                <textarea placeholder="" class="enter" id="" rows="5" maxlength="100"></textarea>
+            </label>
+            <div class="add">
+                <i class="fa-solid fa-arrows-rotate reset"><span>清空</span></i>
+                <i class="fa-solid fa-calendar-plus submit"><span>新增</span></i>
+                <i class="fa-solid fa-floppy-disk alter"><span>修改</span></i>
+                <i class="fa-solid fa-trash-can clear"><span>刪除</span></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="titleInput">
+        <label>
+            <span>Calendar Title</span>
+            <input class="changetitle" type="text" placeholder="My Calendar" maxlength="10">
+            <i class="change fa-solid fa-circle-check"></i>
+        </label>
+    </div>
+
+    <script>
+        const months = ["January", "Febrary", "March", "April", "May", "June", "July", "Auguest", "September", "October", "November", "December"];
+        let date, year, month, day, dayOfWeek, firstdayOfWeek, days, afterDays
+        let nowDay
+        //DOM
+        let Calendartitle = document.querySelector('.title')
+        const titleInput = document.querySelector('.titleInput')
+        const change = document.querySelector('.change')
+        let changetitle = document.querySelector('.changetitle')
+
+        const showyear = document.querySelector('.year')
+        const showmonth = document.querySelector('.month')
+        const changeMonthInput = document.querySelector('.changeMonthInput')
+        let changemonth = document.querySelector('.changeMonth')
+
+        const before = document.querySelector('.fa-angle-left')
+        const after = document.querySelector('.fa-angle-right')
+        const daylist = document.querySelector('.daylist')
+        const today = document.querySelector('.today')
+        const close = document.querySelector('.close')
+        const addCalendar = document.querySelector('.date')
+        const addEvent = document.querySelector('#addEvent')
+
+        const submitBtn = document.querySelector('.submit')
+        const alterBtn = document.querySelector('.alter')
+        const resetBtn = document.querySelector('.reset')
+        const clearBtn = document.querySelector('.clear')
+
+        const addTitle = document.querySelector('.calendar-title')
+        const addTime = document.querySelector('.calendar-time')
+        const textColor = document.querySelector('.text-color')
+        const bgColor = document.querySelector('.bg-color')
+        const addEnter = document.querySelector('.enter')
+
+        //window.onload
+        window.onload = function () {
+            if (localStorage.getItem('Calendar-Title') != null) {
+                Calendartitle.innerHTML = JSON.parse(localStorage.getItem('Calendar-Title'))
+            }
+            date = new Date()
+            year = date.getFullYear()
+            month = date.getMonth()
+            day = date.getDate()
+            dayOfWeek = date.getDay()
+            firstdayOfWeek = new Date(year, month, 1).getDay()
+            days = new Date(year, month + 1, 0).getDate()
+            if (month < 10) {
+                changemonth.value = `${year}-0${month + 1}`
+            } else {
+                changemonth.value = `${year}-${month}`
+            }
+            setHeader()
+            setDays()
+            submit()
+        }
+
+        before.addEventListener('click', () => {
+            month--
+            if (month < 0) {
+                month = month + 12
+                year--
+            }
+            resetData()
+        })
+        after.addEventListener('click', () => {
+            month++
+            if (month > 11) {
+                month = month - 12
+                year++
+            }
+            resetData()
+        })
+
+        //function
+        function setHeader() {
+            showyear.innerText = year
+            showmonth.innerText = months[month]
+            today.addEventListener('click', () => {
+                year = date.getFullYear()
+                month = date.getMonth()
+                firstdayOfWeek = new Date(year, month, 1).getDay()
+                showyear.innerText = year
+                showmonth.innerText = months[month]
+                setDays()
+
+            })
+        }
+        function setDays() {
+            month = Number(month)
+            days = new Date(year, Number(month + 1), 0).getDate()
+            daylist.innerHTML = ""
+            for (let i = 0; i < firstdayOfWeek; i++) {
+                let li = document.createElement('li')
+                afterDays = new Date(year, month, 0).getDate()
+                li.innerText = afterDays - firstdayOfWeek + i + 1
+                li.setAttribute('class', 'day-ruleout')
+                daylist.append(li)
+            }
+            for (let i = 1; i <= days; i++) {
+                let li = document.createElement('li')
+                let h3 = document.createElement('h3')
+                h3.innerText = i
+                h3.setAttribute('class', 'day-title')
+                li.setAttribute('class', 'day')
+                li.setAttribute('id', `${year}/${month + 1}/${i}`)
+                li.append(h3)
+                daylist.append(li)
+
+                //加入代辦事項
+                if (localStorage.getItem(`${year} / ${month + 1} / ${i}`) != null) {
+                    let todoList = JSON.parse(localStorage.getItem(`${year} / ${month + 1} / ${i}`))
+                    todoList.forEach((item, index) => {
+                        let p = document.createElement('p')
+                        p.innerText = item.title
+                        p.setAttribute('class', ' calendar-item')
+                        p.setAttribute('style', `color: ${item.textcolor};  background-color: ${item.bgcolor};`)
+                        li.append(p)
+
+                        p.onclick = () => {
+                            addCalendar.innerText = `${year} / ${month + 1} / ${i}`
+                            addEvent.setAttribute('style', 'display: flex;')
+                            submitBtn.setAttribute('style', 'display: none;')
+                            alterBtn.setAttribute('style', 'display: inline;')
+                            clearBtn.setAttribute('style', 'display: inline;')
+                            addTitle.value = item.title
+                            addTime.value = item.time
+                            textColor.value = item.textcolor
+                            bgColor.value = item.bgcolor
+                            addEnter.value = item.enter
+                            clearBtn.onclick = () => {
+                                todoList.splice(index, 1)
+                                if (todoList.length != 0) {
+                                    localStorage.removeItem(`${year} / ${month + 1} / ${i}`)
+                                }
+                                localStorage.setItem(`${year} / ${month + 1} / ${i}`, JSON.stringify(todoList));
+                                addEvent.setAttribute('style', 'display: none;')
+                                setDays()
+                                sortOut()
+                            }
+                            alterBtn.onclick = () => {
+                                todoList = JSON.parse(localStorage.getItem(addCalendar.innerText));
+                                todoList[index] = {
+                                    title: addTitle.value,
+                                    time: addTime.value,
+                                    textcolor: textColor.value,
+                                    bgcolor: bgColor.value,
+                                    enter: addEnter.value
+                                }
+                                localStorage.setItem(addCalendar.innerText, JSON.stringify(todoList));
+                                addEvent.setAttribute('style', 'display: none;')
+                                setDays()
+                                sortOut()
+                            }
+                            event.stopPropagation()
+                        }
+                    })
+                }
+            }
+            if (firstdayOfWeek + days > 35) {
+                for (let i = 1; i <= 42 - (firstdayOfWeek + days); i++) {
+                    let li = document.createElement('li')
+                    li.innerText = i
+                    li.setAttribute('class', ' day-ruleout')
+                    daylist.append(li)
+                }
+            } else if (firstdayOfWeek + days > 28) {
+                for (let i = 1; i <= 35 - (firstdayOfWeek + days); i++) {
+                    let li = document.createElement('li')
+                    li.innerText = i
+                    li.setAttribute('class', ' day-ruleout')
+                    daylist.append(li)
+                }
+            } else {
+                for (let i = 1; i <= 28 - (firstdayOfWeek + days); i++) {
+                    let li = document.createElement('li')
+                    li.innerText = i
+                    li.setAttribute('class', ' day-ruleout')
+                    daylist.append(li)
+                }
+            }
+            nowDay = document.querySelectorAll('.day')
+            nowDay.forEach((nowday, index) => {
+                let nowDaytitle = document.querySelectorAll('.day-title')
+                nowday.addEventListener('click', () => {
+                    addEvent.setAttribute('style', 'display: flex;')
+                    submitBtn.setAttribute('style', 'display: inline;')
+                    alterBtn.setAttribute('style', 'display: none;')
+                    clearBtn.setAttribute('style', 'display: none;')
+                    sortOut()
+                    addCalendar.innerText = `${year} / ${month + 1} / ${nowDaytitle[index].innerText}`
+                })
+                close.addEventListener('click', () => {
+                    addEvent.setAttribute('style', 'display: none;')
+                    sortOut()
+                })
+            })
+            todayCSS()
+        }
+        function resetData() {
+            setHeader()
+            firstdayOfWeek = new Date(year, month, 1).getDay()
+            days = new Date(year, month + 1, 0).getDate()
+            daylist.innerHTML = ''
+            setDays()
+        }
+
+        function submit() {
+            submitBtn.onclick = function () {
+                let nowDayID = addCalendar.innerText
+                let addCalendarArr = {
+                    title: addTitle.value,
+                    time: addTime.value,
+                    textcolor: textColor.value,
+                    bgcolor: bgColor.value,
+                    enter: addEnter.value
+                }
+                let todoList = []
+                if (localStorage.getItem(nowDayID) == null) {
+                    todoList.push(addCalendarArr);
+                }
+                else {
+                    todoList = JSON.parse(localStorage.getItem(nowDayID));
+                    todoList.push(addCalendarArr);
+                }
+                localStorage.setItem(nowDayID, JSON.stringify(todoList))
+                addEvent.setAttribute('style', 'display: none;')
+                setDays()
+                sortOut()
+            }
+            resetBtn.onclick = function () {
+                sortOut()
+            }
+        }
+
+        //清除addCalendarArr內容
+        function sortOut() {
+            addTitle.value = ''
+            addTime.value = ''
+            textColor.value = '#000000'
+            bgColor.value = '#ffffff'
+            addEnter.value = ''
+        }
+
+        //標示today
+        function todayCSS() {
+            if (year == date.getFullYear() && month == date.getMonth()) {
+                let today = document.getElementById(`${year}/${month + 1}/${day}`)
+                today.setAttribute('style', 'box-shadow: 0 0 8px #c47713;')
+            }
+        }
+
+        //設定changeTitle
+        function changeTitle() {
+            titleInput.setAttribute('style', 'display: flex;')
+            change.onclick = function () {
+                if (changetitle.value !== '') {
+                    let val = changetitle.value
+                    localStorage.setItem('Calendar-Title', JSON.stringify(val))
+                    Calendartitle.innerHTML = JSON.parse(localStorage.getItem('Calendar-Title'))
+                    titleInput.setAttribute('style', 'display: none;')
+                } else {
+                    let val = 'My Calendar'
+                    localStorage.setItem('Calendar-Title', JSON.stringify(val))
+                    Calendartitle.innerHTML = JSON.parse(localStorage.getItem('Calendar-Title'))
+                    titleInput.setAttribute('style', 'display: none;')
+                }
+            }
+        }
+
+        //設定changeMonth
+        function openMonthInput() {
+            changeMonthInput.setAttribute('style', 'display: flex;')
+        }
+
+        function changeMonth() {
+            year = changemonth.value.substr(0, 4)
+            month = `${Number(changemonth.value.substr(5, 2)) - 1}`
+            console.log(month)
+            firstdayOfWeek = new Date(year, month, 1).getDay()
+            console.log(days)
+            showyear.innerText = year
+            showmonth.innerText = months[month]
+            setDays()
+            changeMonthInput.setAttribute('style', 'display: none;')
+        }
+    </script>
+
+</body>
+
+</html>

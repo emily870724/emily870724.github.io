@@ -1,0 +1,309 @@
+html {
+    background-color: #f9eeca;
+    background-image: url(./圖片2.jpg);
+    background-size: 100%;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+@media screen and (max-width: 400px) {
+    html {
+        background-image: url(./圖片2.jpg);
+        background-size: 130%;
+        background-position: top;
+    }
+}
+
+.fa-solid {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 15px auto 0;
+    padding: 0 30px;
+    font-family: 'Edu NSW ACT Foundation', 'Edu VIC WA NT Beginner', serif, Sans-Serif;
+    position: relative;
+}
+
+.calendar-top {
+    margin-bottom: 15px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+}
+
+.title {
+    cursor: pointer;
+}
+
+.year {
+    display: inline-block;
+}
+
+.fa-calendar-day {
+    font-size: 14px;
+}
+
+.changeMonthInput {
+    position: absolute;
+    top: 34px;
+    right: 25px;
+    background-color: #f9cd3d;
+    box-shadow: 0 0 12px #66666a;
+    opacity: 90%;
+    padding: 0px 10px 5px;
+    border-radius: 50px;
+    align-items: center;
+    z-index: 1;
+    display: none;
+}
+
+.changeMonth {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: text;
+}
+
+.fa-circle-check {
+    font-size: 16px;
+    background-color: #f9cd3d;
+    border-radius: 50%;
+    color: #faf5e3;
+}
+
+.months {
+    margin-bottom: 10px;
+    font-size: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+}
+
+.week {
+    width: 14%;
+    position: relative;
+    height: 50px;
+    text-align: center;
+}
+
+.week img {
+    width: 100%;
+    height: 100%;
+}
+
+.week h2 {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+    font-size: 18px;
+}
+
+.daylist {
+    min-height: 400px;
+}
+
+.day,
+.day-ruleout {
+    width: 12.5%;
+    margin: 3px 0.75%;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.day {
+    border: 1.5px solid #e1c878;
+    cursor: pointer;
+    background-color: #f4d982;
+}
+.day-ruleout{
+    background-color: #fffde4;
+}
+
+.day:hover {
+    box-shadow: 0 0 8px #aaaaaa;
+}
+
+.day-title {
+    font-size: 14px;
+}
+
+.day p {
+    margin-top: 2px;
+    padding: 3px 5px;
+    overflow: hidden;
+}
+
+.day-ruleout {
+    border: 1.5px solid #fde69b;
+    color: #d1be7f;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 767px) {
+    .day-title {
+        font-size: 12px;
+    }
+
+    .day-ruleout {
+        font-size: 10px;
+    }
+}
+
+.today {
+    cursor: pointer;
+    position: absolute;
+    top: -35px;
+    right: 43px;
+    border: 1px solid #f9cd3d;
+    border-radius: 50px;
+    padding: 5px;
+    background-color: #fde69b;
+}
+
+.today:hover {
+    background-color: #f9cd3d;
+}
+
+
+.input {
+    position: fixed;
+    margin: auto;
+    top: 20%;
+    right: 0;
+    left: 0;
+    width: 50%;
+    min-width: 220px;
+    max-width: 250px;
+    background-color: #f9cd3d;
+    opacity: 90%;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 0 12px #66666a;
+    overflow: auto;
+    border-radius: 20px;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+}
+
+.calendar {
+    margin: auto;
+}
+
+.calendar label {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.calendar span {
+    margin-bottom: 5px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.calendar-title {
+    width: 150px;
+}
+
+.bg-color-text {
+    margin-left: 5px;
+}
+
+.date {
+    font-size: 24px;
+}
+
+.enter {
+    width: 98%;
+    resize: none;
+}
+
+.calendar .add {
+    margin: -10px auto auto;
+    text-align: right;
+    position: relative;
+}
+
+.calendar .add i {
+    margin: 0 5px;
+    color: rgb(85, 85, 85);
+    position: relative;
+}
+
+.calendar .add .reset {
+    position: absolute;
+    left: 0;
+}
+
+.calendar .add i span {
+    position: absolute;
+    left: 13px;
+    font-size: 12px;
+    color: #fff;
+    opacity: 90%;
+    background-color: #e1c878;
+    box-shadow: 0 0 1px #000;
+    padding: 4px;
+    border-radius: 4px;
+    display: none;
+    transition: 1s;
+}
+.calendar .add i:hover {
+    text-shadow: 0 0 1px #000;
+}
+
+.calendar .add i:hover span {
+    top: -35px;
+    display: block;
+}
+
+.calendar-item {
+    border-radius: 10px;
+    color: #000;
+    background-color: #fff;
+    font-size: 12px;
+    margin-bottom: 1px;
+
+}
+
+.titleInput {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    background-color: #f9cd3d;
+    box-shadow: 0 0 12px #66666a;
+    opacity: 90%;
+    padding: 5px 10px;
+    border-radius: 50px;
+    /* display: flex; */
+    align-items: center;
+    display: none;
+}
+
+.changetitle {
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 2px 10px;
+}
+
+.change {
+    position: relative;
+    top: 2px;
+}
