@@ -2,9 +2,10 @@ html {
     background-color: #f9eeca;
     background-image: url(./圖片2.jpg);
     background-size: 100%;
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     background-position: center;
 }
+
 @media screen and (max-width: 400px) {
     html {
         background-image: url(./圖片2.jpg);
@@ -113,11 +114,13 @@ html {
 .daylist {
     min-height: 400px;
 }
+
 @media screen and (max-width: 400px) {
     .daylist {
         min-height: 300px;
     }
 }
+
 .day,
 .day-ruleout {
     width: 12.5%;
@@ -133,7 +136,8 @@ html {
     cursor: pointer;
     background-color: #f4d982;
 }
-.day-ruleout{
+
+.day-ruleout {
     background-color: #fffde4;
 }
 
@@ -268,6 +272,7 @@ html {
     display: none;
     transition: 1s;
 }
+
 .calendar .add i:hover {
     text-shadow: 0 0 1px #000;
 }
@@ -283,7 +288,12 @@ html {
     background-color: #fff;
     font-size: 12px;
     margin-bottom: 1px;
+}
 
+@media screen and (max-width: 400px) {
+    .calendar-item {
+        text-align: center;
+    }
 }
 
 .titleInput {
