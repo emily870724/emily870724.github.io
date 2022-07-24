@@ -254,6 +254,7 @@ html {
     display: none;
     transition: 1s;
 }
+
 .calendar .add i:hover {
     text-shadow: 0 0 1px #000;
 }
@@ -270,6 +271,12 @@ html {
     font-size: 12px;
     margin-bottom: 1px;
 
+}
+
+@media screen and (max-width: 400px) {
+    .calendar-item {
+        text-align: center;
+    }
 }
 
 .titleInput {
