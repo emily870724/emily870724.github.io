@@ -1,9 +1,12 @@
 html {
     background-color: #f9eeca;
+    background-attachment: local;
+
 }
 
 @media screen and (max-width: 600px) {
     html {
+        max-height: 825px;
         background-image: url(./圖片2.jpg);
         background-size: 100%;
         background-position: center top;
@@ -14,6 +17,7 @@ html {
 
 @media screen and (max-width: 450px) {
     html {
+        max-height: 825px;
         background-image: url(./圖片2.jpg);
         background-size: 120%;
         background-position: center top;
@@ -24,6 +28,7 @@ html {
 
 @media screen and (max-width: 300px) {
     html {
+        max-height: 825px;
         background-image: url(./圖片2.jpg);
         background-size: 150%;
         background-position: center top;
