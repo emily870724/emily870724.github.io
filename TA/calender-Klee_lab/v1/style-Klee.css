@@ -1,7 +1,9 @@
 html {
     background-color: #f9eeca;
     background-attachment: local;
+
 }
+
 @media screen and (max-width: 600px) {
     html {
         max-height: 825px;
@@ -12,6 +14,7 @@ html {
         padding-bottom: 350px;
     }
 }
+
 @media screen and (max-width: 450px) {
     html {
         max-height: 825px;
@@ -22,6 +25,7 @@ html {
         padding-bottom: 350px;
     }
 }
+
 @media screen and (max-width: 300px) {
     html {
         max-height: 825px;
@@ -136,8 +140,7 @@ html {
 
 @media screen and (max-width: 600px) {
     .daylist {
-        min-height: 350px;
-        max-height: 350px;
+        max-height: 300px;
         overflow: auto;
     }
 }
@@ -157,13 +160,7 @@ html {
     cursor: pointer;
     background-color: #f4d982;
 }
-@media screen and (max-width: 600px) {
-    .day,
-    .day-ruleout {
-        max-height: 75px;
-        overflow:auto;
-    }
-}
+
 .day-ruleout {
     background-color: #fffde4;
 }
