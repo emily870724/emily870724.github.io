@@ -21,13 +21,13 @@
         rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/a54152b54f.js" crossorigin="anonymous"></script>
-    <title>行事曆</title>
+    <title>可莉出去玩</title>
 </head>
 
 <body>
     <header class="container">
         <div class="calendar-top">
-            <h1 class="title" onclick="changeTitle()">My Calendar</h1>
+            <h1 class="title" onclick="changeTitle()">_(:3 」∠ )_</h1>
             <div>
                 <h2 class="year">Year</h2>
                 <i class="fa-solid fa-calendar-day" onclick="openMonthInput()"></i>
@@ -117,7 +117,7 @@
     <div class="titleInput">
         <label>
             <span>Calendar Title</span>
-            <input class="changetitle" type="text" placeholder="My Calendar" maxlength="10">
+            <input class="changetitle" type="text" placeholder="ㅍ_ㅍ 快排行程!!" maxlength="10">
             <i class="change fa-solid fa-circle-check"></i>
         </label>
     </div>
@@ -383,7 +383,7 @@
                     Calendartitle.innerHTML = JSON.parse(localStorage.getItem('Calendar-Title'))
                     titleInput.setAttribute('style', 'display: none;')
                 } else {
-                    let val = 'My Calendar'
+                    let val = '快樂出遊去٩(◦`꒳´◦)۶'
                     localStorage.setItem('Calendar-Title', JSON.stringify(val))
                     Calendartitle.innerHTML = JSON.parse(localStorage.getItem('Calendar-Title'))
                     titleInput.setAttribute('style', 'display: none;')
