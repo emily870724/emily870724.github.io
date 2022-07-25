@@ -112,7 +112,7 @@
                 <div class="row">
                     <div class="form-group col-12 station-select">
                         <label class="w-100" for="station">
-                            <h3>地區 : </h3>
+                            <h3>租賃站點查詢 : </h3>
                         </label>
                         <select id="station" class="form-control">
                         </select>
@@ -231,7 +231,7 @@
                     let content = document.querySelector('.details-content')
                     content.innerHTML = ''
                     let sna = document.createElement('h5')
-                    sna.innerText = `租賃站點查詢 : ${data.sna.split('_')[1]}`
+                    sna.innerText = `${data.sna.split('_')[1]}`
                     content.append(sna)
                     let details = document.createElement('div')
                     content.append(details)
