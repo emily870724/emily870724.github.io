@@ -132,7 +132,7 @@ html {
 
 .daylist {
     min-height: 400px;
-    max-height: 400px;
+    /* max-height: 400px; */
 }
 
 @media screen and (max-width: 600px) {
@@ -151,7 +151,8 @@ html {
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 3px;
-    max-height: 85px;
+    min-height: 70px;
+    max-height: 100px;
     overflow:auto;
 }
 
