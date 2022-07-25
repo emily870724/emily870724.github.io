@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="reset.css">
+    <title>YouBike2.0臺北市公共自行車 及時地圖</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <!-- map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+
+        .container-fluid {
+            margin: 30px 30px 0;
+            width: auto;
+        }
+
+        #map {
+            height: 380px;
+            border-radius: 50px;
+        }
+
+        .form-group {
+            padding: 30px 30px 0;
+        }
+
+        .details-content {
+            border-radius: 30px;
+            padding: 30px 30px 0;
+            border: 2px solid peru;
+            min-height: 200px;
+            background-color: navajowhite;
+        }
+
+        .details-content h3 {
+            font-size: 20px;
+            padding-left: 10px;
+        }
+
+        .details-content div {
+            padding: 10px 0;
+        }
+
+        .details-content p {
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h2 class="w-100 text-center">
+            <strong>YouBike2.0 - 北市公共自行車</strong>
+        </h2>
+        <div class="row py-3">
+            <div class="col-6">
+                <div class="form-group col-12">
+                    <div id="map"></div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="row">
+                    <div class="form-group col-12">
+                        <label class="w-100" for="station">
+                            <h3>地區 : </h3>
+                        </label>
+                        <select id="station" class="form-control">
+                            <!-- option -->
+                        </select>
+                    </div>
+                    <div class="form-group col-12 w-100">
+                        <div class="details">
+                            <h3>詳細資料 : </h3>
+                            <div class="details-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+
+    <script>
+
+        // 初始化地圖
+        let map = L.map('map', {
+            center: [25.04179831080551, 121.53627206752415],
+            zoom: 12
+        })
+
+        // 設定圖資來源
+        let layerUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        var layer = new L.TileLayer(layerUrl, {
+            minZoom: 10,
+            maxZoom: 19
+        })
+
+        // 把圖資加到地圖上
+        map.addLayer(layer)
+        // 請求資料
+        // YouBike2.0
+        let YouBike = axios.get('https://tcgbusfs.blob.core.windows.net/dotapp/youbike/v2/youbike_immediate.json')
+
+
+
+        // 全域變數宣告區
+
+        let YouBikeData //YouBike2.0資料
+        let markers = L.markerClusterGroup() // marker 叢集
+
+        window.onload = function () {
+            YouBike
+                .then((res) => {
+                    let ybRes = res
+                    console.log(ybRes)
+                    YouBikeData = ybRes.data
+
+
+                    // 初始化下拉選單
+                    let stationSelect = document.querySelector('#station');
+                    ['請選擇']
+                        .concat([... new Set(YouBikeData.map(x => x.sna))])
+                        .forEach(x => {
+                            const opt = document.createElement('option')
+                            opt.innerText = x
+                            opt.value = x == '請選擇' ? '' : x
+                            stationSelect.appendChild(opt)
+                        })
+
+                    // 初始化地圖上的 marker
+                    setMarker()
+
+                    // select 行為 
+                    document.querySelector('#station').addEventListener('change', function () {
+                        console.log(this.value)
+                        if (this.value !== '') {
+                            let station = YouBikeData.find(x => x.sna == this.value)
+                            map.setView([station.lat, station.lng], 18)
+                        }
+                    })
+                })
+        }
+
+
+        // 設定 Marker
+        function setMarker() {
+            Object.keys(YouBikeData).forEach((x, index) => {
+                let data = YouBikeData[x]
+                console.log(data)
+
+                // 建立 marker
+                let marker = L.marker([data.lat, data.lng])
+                console.log(marker)
+
+                // popUp 顯示資訊
+                marker.bindPopup(`
+                    <h4>${data.sna.split('_')[1]}</h4>
+                    <p>可借車輛 : ${data.sbi}</p>
+                    <p>可停空位 : ${data.bemp}</p>
+                `)
+
+                // marker 點擊時
+                marker.addEventListener('click', function () {
+                    let content = document.querySelector('.details-content')
+                    content.innerHTML = ''
+                    let sna = document.createElement('h5')
+                    sna.innerText = `租賃站點查詢 : ${data.sna.split('_')[1]}`
+                    content.append(sna)
+                    let details = document.createElement('div')
+                    content.append(details)
+                    let ar = document.createElement('p')
+                    ar.innerText = `站點位置 : ${data.sarea} - ${data.ar}`
+                    details.append(ar)
+                    let sbi = document.createElement('p')
+                    sbi.innerText = `可借車輛 : ${data.sbi}`
+                    details.append(sbi)
+                    let bemp = document.createElement('p')
+                    bemp.innerText = `可停空位 : ${data.bemp}`
+                    details.append(bemp)
+                    let infoTime = document.createElement('p')
+                    infoTime.innerText = `最後更新時間 : ${data.infoTime}`
+                    details.append(infoTime)
+                })
+
+                // marker 叢集的功能
+                markers.addLayer(marker)
+
+            })
+            map.addLayer(markers)
+        }
+    </script>
+</body>
+
+</html>
