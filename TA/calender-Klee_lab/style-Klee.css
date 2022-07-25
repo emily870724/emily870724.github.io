@@ -138,9 +138,10 @@ html {
     min-height: 400px;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
     .daylist {
-        min-height: 300px;
+        max-height: 300px;
+        overflow: auto;
     }
 }
 
