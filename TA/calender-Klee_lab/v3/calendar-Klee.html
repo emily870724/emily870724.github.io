@@ -33,7 +33,7 @@
                 <i class="fa-solid fa-calendar-day" onclick="openMonthInput()"></i>
                 <div class="changeMonthInput">
                     <label>
-                        <input class="changeMonth" type="month" required="required" max="9999-12" id="query">
+                        <input class="changeMonth" type="month" required="required" max="9999-12">
                         <i class="fa-solid fa-circle-check" onclick="changeMonth()"></i>
                     </label>
                 </div>
@@ -235,11 +235,7 @@
                     let todoList = JSON.parse(localStorage.getItem(`${year} / ${month + 1} / ${i}`))
                     todoList.forEach((item, index) => {
                         let p = document.createElement('p')
-                        if(item.title !== ''){
-                            p.innerText = `${item.title}`
-                        }else {
-                            p.innerText = '行程'
-                        }
+                        p.innerText = item.title
                         p.setAttribute('class', ' calendar-item')
                         p.setAttribute('style', `color: ${item.textcolor};  background-color: ${item.bgcolor};`)
                         li.append(p)
@@ -403,17 +399,14 @@
         function changeMonth() {
             year = changemonth.value.substr(0, 4)
             month = `${Number(changemonth.value.substr(5, 2)) - 1}`
+            console.log(month)
             firstdayOfWeek = new Date(year, month, 1).getDay()
+            console.log(days)
             showyear.innerText = year
             showmonth.innerText = months[month]
             setDays()
             changeMonthInput.setAttribute('style', 'display: none;')
         }
-        //
-        document.querySelector("#query").addEventListener('change', function () {
-            changeMonth()
-        })
-        //
     </script>
 
 </body>

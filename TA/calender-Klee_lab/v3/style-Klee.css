@@ -130,6 +130,19 @@ html {
     font-size: 18px;
 }
 
+.daylist {
+    min-height: 400px;
+    /* max-height: 400px; */
+}
+
+@media screen and (max-width: 600px) {
+    .daylist {
+        min-height: 350px;
+        max-height: 350px;
+        /* overflow: auto; */
+    }
+}
+
 .day,
 .day-ruleout {
     width: 12.5%;
@@ -139,7 +152,7 @@ html {
     /* overflow: hidden; */
     border-radius: 3px;
     min-height: 70px;
-    max-height: 70px;
+    max-height: 100px;
     overflow:auto;
 }
 
@@ -151,22 +164,9 @@ html {
 @media screen and (max-width: 600px) {
     .day,
     .day-ruleout {
-        min-height: 70px;
-        max-height: 70px;
-    }
-}
-@media screen and (max-width: 450px) {
-    .day,
-    .day-ruleout {
         min-height: 60px;
-        max-height: 60px;
-    }
-}
-@media screen and (max-width: 350px) {
-    .day,
-    .day-ruleout {
-        min-height: 50px;
-        max-height: 50px;
+        max-height: 75px;
+        overflow:auto;
     }
 }
 .day-ruleout {
@@ -185,6 +185,7 @@ html {
     margin-top: 2px;
     padding: 3px 5px;
     overflow: hidden;
+    min-height: 3px;
 }
 
 .day-ruleout {
