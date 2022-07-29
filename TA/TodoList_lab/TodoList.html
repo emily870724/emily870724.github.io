@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./todolist.css">
+    <script src="https://kit.fontawesome.com/a54152b54f.js" crossorigin="anonymous"></script>
+    <title>Todo-List</title>
+</head>
+
+<body>
+    <div class="todolist">
+        <div class="title">
+            <h1>_( ﾟДﾟ)ﾉ 還不快去做 ԅ(¯﹃¯ԅ)</h1>
+        </div>
+        <div class="add">
+                <input class="add-matter" type="text" placeholder="添加事項..." maxlength="30">
+                <i class="fa-solid fa-plus submit"></i>
+        </div>
+        <div class="main">
+            <!-- <div class="matter">
+                <input type="checkbox" class="checkbox">
+                <p class="matter-title">事項</p>
+                <i class="fa-solid fa-file-pen edit"></i>
+                <i class="fa-solid fa-trash-can clear"></i>
+                <div class="matter-alter">
+                    <input class="alter-title" type="text" placeholder="事項" maxlength="30">
+                    <i class="fa-solid fa-floppy-disk alter"></i>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <script>
+        //DOM
+        let addMatter = document.querySelector('.add-matter')
+        let submitBtn = document.querySelector('.submit')
+        let main = document.querySelector('.main')
+
+
+        //window.onload
+        window.onload = function () {
+            setTodo()
+            submit()
+            if(main.innerHTML == ""){
+                main.innerHTML = `<p class="preset">你還沒有行程喔</p>`
+            }
+        }
+
+        //function
+
+        function setTodo() {
+            main.innerHTML = ""
+            if (localStorage.getItem('todo') != null) {
+                let todoList = JSON.parse(localStorage.getItem('todo'))
+                todoList.forEach((item, index) => {
+                    let matter = document.createElement('div')
+                    matter.setAttribute('class', 'matter')
+                    let checkbox = document.createElement('input')
+                    checkbox.setAttribute('type', 'checkbox')
+                    checkbox.setAttribute('class', `checkbox checkbox-${index}`)
+                    checkbox.checked = item.checkbox
+                    let matterTitle = document.createElement('p')
+                    matterTitle.setAttribute('class', 'matter-title')
+                    if (item.title !== '') {
+                        matterTitle.innerText = `${item.title}`
+                    } else {
+                        matterTitle.innerText = '行程'
+                    }
+                    let edit = document.createElement('i')
+                    edit.setAttribute('class', `fa-solid fa-file-pen edit edit-${index}`)
+                    let clear = document.createElement('i')
+                    clear.setAttribute('class', `fa-solid fa-trash-can clear clear-${index}`)
+                    matter.append(checkbox)
+                    matter.append(matterTitle)
+                    matter.append(edit)
+                    matter.append(clear)
+
+                    let matterAlter = document.createElement('div')
+                    matterAlter.setAttribute('class', `matter-alter matter-alter-${index}`)
+                    let alterTitle = document.createElement('input')
+                    alterTitle.setAttribute('type', 'text')
+                    alterTitle.setAttribute('placeholder', `${matterTitle.innerText}`)
+                    alterTitle.setAttribute('maxlength', '30')
+                    alterTitle.setAttribute('class', `alter-title alter-title-${index} `)
+                    let alter = document.createElement('i')
+                    alter.setAttribute('class', `fa-solid fa-floppy-disk alter alter-${index}`)
+                    matterAlter.append(alterTitle)
+                    matterAlter.append(alter)
+                    matter.append(matterAlter)
+                    main.append(matter)
+
+                    let clearBtn = document.querySelector(`.clear-${index}`)
+                    clearBtn.onclick = () => {
+                        todoList.splice(index, 1)
+                        if (todoList.length != 0) {
+                            localStorage.removeItem('todo')
+                        }
+                        localStorage.setItem('todo', JSON.stringify(todoList));
+                        setTodo()
+                    }
+
+                    let editBtn = document.querySelector(`.edit-${index}`)
+                    let changeMatter = document.querySelector(`.matter-alter-${index}`)
+                    let changeTitle = document.querySelector(`.alter-title-${index}`)
+                    editBtn.onclick = () => {
+                        changeMatter.setAttribute('style', 'display: flex;')
+                    }
+                    let alterBtn = document.querySelector(`.alter-${index}`)
+                    alterBtn.onclick = () => {
+                        todoList = JSON.parse(localStorage.getItem('todo'))
+                        todoList[index].title = changeTitle.value
+                        localStorage.setItem('todo', JSON.stringify(todoList))
+                        changeMatter.setAttribute('style', 'display: none;')
+                        setTodo()
+                    }
+
+                    let checkboxBtn = document.querySelector(`.checkbox-${index}`)
+                    checkboxBtn.addEventListener('change', function () {
+                        todoList = JSON.parse(localStorage.getItem('todo'))
+                        if (todoList[index].checkbox == false) {
+                            todoList[index].checkbox = true
+                        }
+                        else if (todoList[index].checkbox == true) {
+                            todoList[index].checkbox = false
+                        }
+                        checkboxBtn.checked = item.checkbox
+                        localStorage.setItem('todo', JSON.stringify(todoList))
+                        setTodo()
+                    })
+                })
+            }
+        }
+
+        function submit() {
+            submitBtn.onclick = function () {
+                let todoList = []
+                let addtodoList = {
+                    checkbox: false,
+                    title: addMatter.value
+                }
+                if (localStorage.getItem('todo') == null) {
+                    todoList.push(addtodoList)
+                }
+                else {
+                    todoList = JSON.parse(localStorage.getItem('todo'))
+                    todoList.push(addtodoList)
+                }
+                localStorage.setItem('todo', JSON.stringify(todoList))
+
+                addMatter.value = ''
+                setTodo()
+            }
+        }
+    </script>
+</body>
+
+</html>

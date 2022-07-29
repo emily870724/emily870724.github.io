@@ -1,0 +1,127 @@
+html {
+    background-image: url(./背景.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+i {
+    cursor: pointer;
+}
+
+.todolist {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+.title {
+    text-align: center;
+    font-size: 30px;
+    padding-top: 20px;
+    font-weight: bolder;
+    color: rgb(66, 49, 4);
+}
+
+.add {
+    position: relative;
+    margin: 30px auto 0;
+    text-align: center;
+    width: 80%;
+}
+
+.add-matter {
+    width: 80%;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: 2px solid rgb(196, 173, 144);
+    border-radius: 8px;
+    background-color: antiquewhite;
+    opacity: 70%;
+    outline: none;
+}
+
+.submit {
+    position: absolute;
+    right: 10%;
+    top: 5px;
+    padding: 5px;
+    opacity: 70%;
+}
+
+.add-matter:hover,
+.add-matter:focus,
+.add-matter:hover~.submit,
+.add-matter:focus~.submit {
+    opacity: 100%;
+}
+
+.main {
+    margin: 25px auto;
+    width: 70%;
+    max-height: 400px;
+    min-height: 30px;
+    box-sizing: border-box;
+    overflow: auto;
+    border: 2px solid rgb(196, 173, 144);
+    background-color: antiquewhite;
+    border-radius: 8px;
+}
+.preset{
+    padding: 5px;
+    text-align: center;
+}
+.matter {
+    box-sizing: border-box;
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 1.5px solid tan;
+}
+
+.matter:last-child {
+    border-bottom: none;
+}
+
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.matter-title {
+    width: 80%;
+    font-size: 16px;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+.edit,
+.clear {
+    padding: 2px;
+    margin-left: 5px;
+}
+
+.matter-alter {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    width: calc(100% - 50px);
+    display: none;
+}
+
+.alter-title {
+    font-size: 16px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.alter {
+    position: absolute;
+    right: 10px;
+}
