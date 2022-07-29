@@ -127,9 +127,6 @@ i {
 }
 
 @media screen and (max-width: 767px) {
-    .title {
-        font-size: 30px;
-    }
     .add {
         width: 100%;
     }
@@ -139,7 +136,7 @@ i {
 }
 @media screen and (max-width: 500px) {
     .title {
-        font-size: 24px;
+        font-size: 28px;
     }
     .add-matter {
         font-size: 16px;
@@ -147,7 +144,7 @@ i {
 }
 @media screen and (max-width: 400px) {
     .title {
-        font-size: 20px;
+        font-size: 22px;
     }
     .add-matter {
         font-size: 16px;
