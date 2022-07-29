@@ -46,7 +46,7 @@
             setTodo()
             submit()
             if (main.innerHTML == "") {
-                main.innerHTML = `<p class="preset">請先添加行程喔</p>`
+                main.innerHTML = `<p class="preset">請先添加事項喔</p>`
             }
         }
 
@@ -68,7 +68,7 @@
                     if (item.title !== '') {
                         matterTitle.innerText = `${item.title}`
                     } else {
-                        matterTitle.innerText = '行程'
+                        matterTitle.innerText = '事項'
                     }
                     let edit = document.createElement('i')
                     edit.setAttribute('class', `fa-solid fa-file-pen edit edit-${index}`)
