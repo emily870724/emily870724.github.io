@@ -31,23 +31,24 @@ i {
     border-radius: 8px;
     background-color: antiquewhite;
     opacity: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 .add-matter {
-    width: 90%;
+    width: 80%;
     font-size: 20px;
-    padding: 5px 10px;
+    padding: 5px 0 5px 10%;
     border: none;
     background-color: antiquewhite;
     outline: none;
 }
 
 .submit {
-    position: absolute;
-    right: 10%;
-    top: 5px;
-    padding: 3px;
     opacity: 70%;
+    padding-right: 10%;
 }
 
 .add:hover,
@@ -133,9 +134,6 @@ i {
     .title {
         font-size: 28px;
     }
-    .submit{
-        padding: 1px;
-    }
     .add-matter {
         font-size: 16px;
     }
@@ -144,9 +142,6 @@ i {
 @media screen and (max-width: 400px) {
     .title {
         font-size: 22px;
-    }
-    .submit{
-        padding: 0;
     }
     .add-matter {
         font-size: 16px;
