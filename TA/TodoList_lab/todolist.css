@@ -61,7 +61,6 @@ i {
     width: 90%;
     max-height: 400px;
     min-height: 30px;
-    box-sizing: border-box;
     overflow: auto;
     border: 2px solid rgb(196, 173, 144);
     background-color: antiquewhite;
