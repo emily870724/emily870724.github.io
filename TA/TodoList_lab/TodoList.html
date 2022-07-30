@@ -100,6 +100,7 @@
                     let changeMatter = document.querySelector(`.matter-alter-${index}`)
                     let changeTitle = document.querySelector(`.alter-title-${index}`)
                     editBtn.onclick = () => {
+                        changeTitle.value = todoList[index].title
                         changeMatter.setAttribute('style', 'display: flex;')
                     }
                     let alterBtn = document.querySelector(`.alter-${index}`)
