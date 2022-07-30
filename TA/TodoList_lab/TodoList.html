@@ -103,6 +103,7 @@
                         changeTitle.value = todoList[index].title
                         changeMatter.setAttribute('style', 'display: flex;')
                     }
+
                     let alterBtn = document.querySelector(`.alter-${index}`)
                     alterBtn.onclick = () => {
                         todoList = JSON.parse(localStorage.getItem('todo'))
@@ -111,6 +112,12 @@
                         changeMatter.setAttribute('style', 'display: none;')
                         setTodo()
                     }
+                    changeTitle.addEventListener("keyup", function (event) {
+                        event.preventDefault()
+                        if (event.keyCode === 13) {
+                            alterBtn.click()
+                        }
+                    })
 
                     let checkboxBtn = document.querySelector(`.checkbox-${index}`)
                     checkboxBtn.addEventListener('change', function () {
@@ -148,6 +155,13 @@
                 addMatter.value = ''
                 setTodo()
             }
+            
+            addMatter.addEventListener("keyup", function (event) {
+                event.preventDefault()
+                if (event.keyCode === 13) {
+                    submitBtn.click()
+                }
+            })
         }
     </script>
 </body>
