@@ -21,16 +21,6 @@
             <i class="fa-solid fa-plus submit"></i>
         </div>
         <div class="main">
-            <!-- <div class="matter">
-                <input type="checkbox" class="checkbox">
-                <p class="matter-title">事項</p>
-                <i class="fa-solid fa-file-pen edit"></i>
-                <i class="fa-solid fa-trash-can clear"></i>
-                <div class="matter-alter">
-                    <input class="alter-title" type="text" placeholder="事項" maxlength="30">
-                    <i class="fa-solid fa-floppy-disk alter"></i>
-                </div>
-            </div> -->
         </div>
     </div>
 
@@ -86,7 +76,7 @@
             checkbox()
         }
 
-        function addTodo(){
+        function addTodo() {
             if (localStorage.getItem('todo') != null) {
                 let todoList = JSON.parse(localStorage.getItem('todo'))
                 todoList.forEach((item, index) => {
