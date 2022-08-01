@@ -47,17 +47,19 @@
                     checkbox: false,
                     title: addMatter.value
                 }
-                if (localStorage.getItem('todo') == null) {
-                    todoList.push(addtodoList)
-                }
-                else {
-                    todoList = JSON.parse(localStorage.getItem('todo'))
-                    todoList.push(addtodoList)
-                }
-                localStorage.setItem('todo', JSON.stringify(todoList))
+                if (addMatter.value != "") {
+                    if (localStorage.getItem('todo') == null) {
+                        todoList.push(addtodoList)
+                    }
+                    else {
+                        todoList = JSON.parse(localStorage.getItem('todo'))
+                        todoList.push(addtodoList)
+                    }
+                    localStorage.setItem('todo', JSON.stringify(todoList))
 
-                addMatter.value = ''
-                setTodo()
+                    addMatter.value = ''
+                    setTodo()
+                }
             }
             addMatter.addEventListener("keyup", function (event) {
                 event.preventDefault()
@@ -88,11 +90,8 @@
                     checkbox.checked = item.checkbox
                     let matterTitle = document.createElement('p')
                     matterTitle.setAttribute('class', 'matter-title')
-                    if (item.title !== '') {
-                        matterTitle.innerText = `${item.title}`
-                    } else {
-                        matterTitle.innerText = '事項'
-                    }
+                    matterTitle.innerText = `${item.title}`
+                    
                     let edit = document.createElement('i')
                     edit.setAttribute('class', `fa-solid fa-file-pen edit edit-${index}`)
                     let clear = document.createElement('i')
