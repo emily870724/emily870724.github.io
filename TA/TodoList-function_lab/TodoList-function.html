@@ -77,9 +77,16 @@
             })
         }
 
-
         function setTodo() {
             main.innerHTML = ""
+            addTodo()
+            clear()
+            edit()
+            alter()
+            checkbox()
+        }
+
+        function addTodo(){
             if (localStorage.getItem('todo') != null) {
                 let todoList = JSON.parse(localStorage.getItem('todo'))
                 todoList.forEach((item, index) => {
@@ -120,12 +127,7 @@
                     main.append(matter)
                 })
             }
-            clear()
-            edit()
-            alter()
-            checkbox()
         }
-
 
         function clear() {
             let todoList = JSON.parse(localStorage.getItem('todo'))
@@ -144,7 +146,6 @@
                 }
             })
         }
-
 
         function edit() {
             let todoList = JSON.parse(localStorage.getItem('todo'))
