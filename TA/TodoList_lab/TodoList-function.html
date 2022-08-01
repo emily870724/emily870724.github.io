@@ -45,7 +45,7 @@
                 let todoList = []
                 let addtodoList = {
                     checkbox: false,
-                    title: addMatter.value
+                    title: addMatter.value.trim()
                 }
                 if (addMatter.value != "") {
                     if (localStorage.getItem('todo') == null) {
@@ -159,7 +159,7 @@
                 let changeTitle = document.querySelector(`.alter-title-${index}`)
                 alterBtn.onclick = () => {
                     todoList = JSON.parse(localStorage.getItem('todo'))
-                    todoList[index].title = changeTitle.value
+                    todoList[index].title = changeTitle.value.trim()
                     localStorage.setItem('todo', JSON.stringify(todoList))
                     changeMatter.setAttribute('style', 'display: none;')
                     setTodo()
