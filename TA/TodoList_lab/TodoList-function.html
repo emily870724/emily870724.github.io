@@ -159,10 +159,12 @@
                 let changeTitle = document.querySelector(`.alter-title-${index}`)
                 alterBtn.onclick = () => {
                     todoList = JSON.parse(localStorage.getItem('todo'))
-                    todoList[index].title = changeTitle.value.trim()
-                    localStorage.setItem('todo', JSON.stringify(todoList))
-                    changeMatter.setAttribute('style', 'display: none;')
-                    setTodo()
+                    if (changeTitle.value.trim() != "") {
+                        todoList[index].title = changeTitle.value.trim()
+                        localStorage.setItem('todo', JSON.stringify(todoList))
+                        changeMatter.setAttribute('style', 'display: none;')
+                        setTodo()
+                    }
                 }
                 changeTitle.addEventListener("keyup", function (event) {
                     event.preventDefault()
