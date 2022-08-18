@@ -81,9 +81,6 @@ img {
     padding-right: 15px;
     box-sizing: border-box;
 }
-[class*="cols-"] > .col{
-    margin-bottom: 20px;
-}
 
 /* 不等寬格線設計 contaniner > row > col-()*/
 .col-1{width: 8.3333%;}
@@ -142,6 +139,10 @@ img {
 }
 
 /* 等寬格線設計 contaniner > row-cols-() > col*/
+[class*="cols-"] > .col{
+    margin-bottom: 20px;
+}
+
 .row-cols-1 .col{ width: 100%; }
 .row-cols-2 .col{ width: 50%; }
 .row-cols-3 .col{ width: 33.333333%; }
