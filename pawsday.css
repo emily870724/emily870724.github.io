@@ -62,7 +62,7 @@ img {
 }
 
 /* 格線設計 */
-.contaniner{
+.container{
     max-width: 1200px;
     margin-right: auto;
     margin-left: auto;
@@ -78,7 +78,7 @@ img {
 }
 
 
-/* 不等寬格線設計 contaniner > row > col-()*/
+/* 不等寬格線設計 container > row > col-()*/
 [class*="col-"]{
     padding-left: 15px;
     padding-right: 15px;
@@ -139,7 +139,7 @@ img {
     .col-xl-12{width: 100%;}
 }
 
-/* 等寬格線設計 contaniner > row-cols-() > col*/
+/* 等寬格線設計 container > row-cols-() > col*/
 [class*="cols-"] > .col{
     padding-left: 15px;
     padding-right: 15px;
