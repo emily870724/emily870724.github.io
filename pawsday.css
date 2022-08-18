@@ -46,15 +46,15 @@ body{
     font-family: "Noto Sans TC", "Microsoft YaHei", sans-serif;
 }
 :root {
-    --clr-bg-y: #fef4dd;
-    --clr-bg-g: #bbbbbb;
-    --clr-primary: #f1c493;
-    --clr-border: #a26d39;
-    --clr-specfont: #562f09;
-    --clr-font: #0c0b0b;
-    --mainfont:36px;
-    --vicefont:26px;
-    --font:14px;
+    --clr-bg-y: #fef4dd;    /*背景-黃*/
+    --clr-bg-g: #bbbbbb;    /*背景-灰*/
+    --clr-primary: #f1c493; /*主色*/
+    --clr-border: #a26d39;  /*邊框線*/
+    --clr-specfont: #562f09;/*主標*/
+    --clr-font: #0c0b0b;    /*內文*/
+    --mainfont:36px;    /*主標字體大小*/
+    --vicefont:26px;    /*副標字體大小*/
+    --font:14px;        /*內文字體大小*/
 }
 img {
     width: 100%;
