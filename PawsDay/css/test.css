@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    font-family: "Noto Sans TC", "Microsoft YaHei", sans-serif;
+}
+
+:root {
+    --column-count: 2;
+    --column-gap: 15px;
+    --column-width: 900px;
+    --background-color1: #e6ecef;
+    --primary-color1: #a3cef1;
+    --border-color1: #6096ba;
+    --title-color1: #284c77;
+    --font-color1: #0d141f;
+
+    --background-color2: #f8f2ef;
+    --primary-color2: #c3a7a1;
+    --border-color2: #a25d39;
+    --title-color2: #483e35;
+    --font-color2: #0c0b0b;
+
+    --background-color3: #fef4dd;
+    --background-color: #BBBBBB;
+    --primary-color3: #f1C493;
+    --border-color3: #a26d39;
+    --title-color3: #562f09;
+    --font-color3: #0c0b0b;
+
+    --background-color4: #f9f9f9;
+    --primary-color4: #8bdadf;
+    --border-color4: #6fb4ba;
+    --title-color4: #4e7c81;
+    --font-color4: #3d5759;
+
+    --size-mainfont:36px;
+    --size-vicefont:26px;
+    --size-font:14px;
+}
+
+img {
+    width: 100%;
+    vertical-align: text-top;
+}
+
+.row{
+    display: flex;
+}
+
+.content{
+    margin: 20px;
+    margin-right: 70px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+h1{
+    font-size: var(--size-mainfont);
+    font-weight: 500;
+}
+h2{font-size: var(--size-vicefont);
+font-weight: 500;}
+p{font-size: var(--size-font);}
+.bg{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    left: 20%;
+    z-index: -1;
+}
+.test1{
+    border: 3px solid var(--border-color1);
+    background-color: var(--background-color1);
+    color: var(--title-color1);
+}
+
+.test1 p{
+    color: var(--font-color1);
+}
+.bg1{
+    background-color: var(--primary-color1);
+}
+.test2{
+    border: 3px solid var(--border-color2);
+    background-color: var(--background-color2);
+    color: var(--title-color2);
+}
+.test2 p{
+    color: var(--font-color2);
+}
+.bg2{
+    background-color: var(--primary-color2);
+}
+
+.test3{
+    border: 3px solid var(--border-color3);
+    background-color: var(--background-color3);
+    color: var(--title-color3);
+}
+.test3 p{
+    color: var(--font-color3);
+}
+.bg3{
+    background-color: var(--primary-color3);
+}
+
+.test4{
+    border: 3px solid var(--border-color4);
+    background-color: var(--background-color4);
+    color: var(--title-color4);
+}
+.test4 p{
+    color: var(--font-color4);
+}
+.bg4{
+    background-color: var(--primary-color4);
+}
+
+@media screen and (min-width:768px) {}
+
+@media screen and (min-width:992px) {}
+
+@media screen and (min-width:1200px) {}
