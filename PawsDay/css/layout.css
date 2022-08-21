@@ -83,14 +83,15 @@ header .row{
     overflow: hidden;
 }
 main{
-    min-height: 300px;
+    min-height: calc(100vh - 268.5px);
 }
 footer {
     background-color: var(--clr-primary);
 }
 
 .footer-platform-intro {
-    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .footer-platform-intro li {
@@ -114,7 +115,7 @@ footer {
 
 .footer-companyInfo {
     font-size: 12px;
-    padding: 32px;
+    padding: 20px;
     background-color: var(--clr-border);
     color: var(--clr-bg-y);
 }
