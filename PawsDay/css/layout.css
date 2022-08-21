@@ -2,9 +2,11 @@ a {
     text-decoration: none;
     color: var(--clr-font);
 }
-a:hover{
+
+a:hover {
     color: var(--clr-font);
 }
+
 h1 {
     position: absolute;
     width: 1px;
@@ -16,8 +18,12 @@ h1 {
     white-space: nowrap;
     border-width: 0;
 }
-html{scroll-behavior: smooth;}
-.go-top{
+
+html {
+    scroll-behavior: smooth;
+}
+
+.go-top {
     text-decoration: none;
     color: var(--clr-border);
     position: fixed;
@@ -34,9 +40,11 @@ html{scroll-behavior: smooth;}
     box-shadow: 1px 2px 10px 2px var(--clr-specfont);
     transition: .5s;
 }
-.go-top:hover{
+
+.go-top:hover {
     opacity: 90%;
 }
+
 header {
     position: sticky;
     top: 0;
@@ -48,10 +56,12 @@ header {
     height: 60px;
     transition: .3s;
 }
-header .row{
+
+header .row {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
 }
+
 .header-logo img {
     width: 140px;
 }
@@ -61,11 +71,13 @@ header .row{
     justify-content: flex-end;
     display: none;
 }
-@media screen and (min-width:768px){
-    .header-member{
+
+@media screen and (min-width:768px) {
+    .header-member {
         display: flex;
     }
 }
+
 .header-item {
     padding-left: 10px;
     padding-right: 10px;
@@ -82,9 +94,11 @@ header .row{
     background-color: var(--clr-bg-g);
     overflow: hidden;
 }
-main{
+
+main {
     min-height: calc(100vh - 268.5px);
 }
+
 footer {
     background-color: var(--clr-primary);
 }
@@ -146,11 +160,13 @@ footer {
     .footer-platform-intro a:hover {
         border-bottom: none;
     }
-    .footer-platform-intro p{
+
+    .footer-platform-intro p {
         position: relative;
         bottom: -10px;
     }
-    .footer-copyright{
+
+    .footer-copyright {
         text-align: right;
     }
 }
@@ -167,8 +183,22 @@ footer {
         padding: 10px;
     }
 }
+
 @media screen and (min-width:768px) {
     .menu-button {
         display: none;
     }
+}
+
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus,
+button:focus,
+.form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
 }
