@@ -22,18 +22,24 @@
         }
 
         .search-input {
+            border-radius: var(--radius);
             border: 1px solid var(--clr-bg-g);
         }
 
-        .search-input:focus {
+        .search-input:hover,.search-input:focus {
             border: 1px solid var(--clr-primary);
         }
 
         .search-btn {
-            width: 60px;
             color: white;
+            border-radius: var(--radius);
             background-color: var(--clr-primary);
             border: 1px solid var(--clr-primary);
+        }
+        .search-btn:hover,
+        .search-btn:focus {
+            background-color: var(--clr-border);
+            border: 1px solid var(--clr-border);
         }
 
         @media screen and (min-width:768px) {
@@ -79,7 +85,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control search-input" placeholder="輸入地區、服務..."
                             aria-label="輸入搜尋字詞" aria-describedby="button-addon">
-                        <button class="btn btn-outline-secondary search-btn" type="button" id="button-addon">
+                        <button class="btn search-btn" type="button" id="button-addon">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
                     </div>
