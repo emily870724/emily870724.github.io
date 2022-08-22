@@ -49,7 +49,7 @@ button:focus,
 .form-control:focus {
     outline: none !important;
     box-shadow: none !important;
-    border: none;
+    border: none !important;
 }
 /* 共版 */
 body{
