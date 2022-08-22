@@ -46,10 +46,11 @@ table {
 .btn:active.focus,
 .btn.active.focus,
 button:focus,
-.form-control:focus {
+button,
+.form-control{
     outline: none !important;
     box-shadow: none !important;
-    border: none !important;
+    border: none;
 }
 /* 共版 */
 body{
@@ -83,6 +84,7 @@ img {
 }
 .pawsday-btn:hover,
 .pawsday-btn:focus{
+    color: #fff;
     background-color: var(--clr-specfont);
 }
 .pawsday-input{
@@ -170,7 +172,6 @@ img {
     .col-lg-11{width: 91.6666%;}
     .col-lg-12{width: 100%;}
 }
-
 
 /* 等寬格線設計 container > row-cols-() > col*/
 [class*="cols-"] > .col{
