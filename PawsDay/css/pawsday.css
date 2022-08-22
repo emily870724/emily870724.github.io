@@ -55,22 +55,55 @@ body{
     --mainfont:36px;    /*主標字體大小*/
     --vicefont:26px;    /*副標字體大小*/
     --font:14px;        /*內文字體大小*/
-    --fw-specfont: 500; /*主/副標font-weight*/
+    --fw-specfont: 700; /*主/副標font-weight*/
+    --radius: 6px;
 }
 img {
     width: 100%;
     vertical-align: text-top;
 }
+.pawsday-btn{
+    color: #fff;
+    background-color: var(--clr-border);
+    border-radius: var(--radius);
+    transition: 0.5s;
+    padding: 10px 15px;
+}
+.pawsday-btn:hover,
+.pawsday-btn:focus{
+    background-color: var(--clr-specfont);
+}
+.pawsday-input{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid var(--clr-bg-g);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.pawsday-input:focus{
+    border: 1px solid var(--clr-border);
+    outline: none;
+}
+.pawsday-input::placeholder{
+    color: var(--clr-bg-g);
+    font-size: var(--font);
+}
+
+.pawsday-input-label{
+    margin-bottom: 10px;
+    font-size: var(--font);
+}
 
 /* 格線設計 */
 .container{
-    max-width: 1200px;
+    max-width: 992px;
     margin-right: auto;
     margin-left: auto;
     padding-left: 15px;
     padding-right: 15px;
 }
-
 .row{
     display: flex;
     flex-wrap: wrap;
