@@ -51,7 +51,7 @@ body{
     --clr-border: #a26d39;  /*邊框線*/
     --clr-specfont: #562f09;/*主標*/
     --clr-font: #0c0b0b;    /*內文*/
-    --clr-font: #454545;    /*內文*/
+    --clr-font-g: #454545;    /*內文*/
     --mainfont:36px;    /*主標字體大小*/
     --vicefont:26px;    /*副標字體大小*/
     --font:14px;        /*內文字體大小*/
