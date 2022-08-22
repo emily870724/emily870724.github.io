@@ -39,6 +39,17 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus,
+button:focus,
+.form-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
 /* 共版 */
 body{
     line-height: 1.5;
