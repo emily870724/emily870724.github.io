@@ -96,7 +96,7 @@ header .row {
 }
 
 main {
-    min-height: calc(100vh - 268.5px);
+    min-height: calc(100vh - 250.5px);
 }
 
 footer {
