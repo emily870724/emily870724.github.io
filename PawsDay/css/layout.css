@@ -101,6 +101,7 @@ main {
 
 footer {
     background-color: var(--clr-primary);
+    border-top: 1px solid var(--clr-border);
 }
 
 .footer-platform-intro {
@@ -119,12 +120,10 @@ footer {
 .footer-platform-intro a {
     font-size: var(--font);
     color: var(--clr-font);
-    border-bottom: 1.5px solid transparent;
 }
 
 .footer-platform-intro a:hover {
     color: var(--clr-specfont);
-    border-bottom: 1.5px solid var(--clr-border);
 }
 
 .footer-companyInfo {
@@ -137,16 +136,12 @@ footer {
 
 @media screen and (min-width:768px) {
     .footer-platform-intro li {
-        border-bottom: 1.5px solid transparent;
         padding-bottom: 0px;
     }
 
-    .footer-platform-intro li~li {
+    .footer-platform-intro li~li ,
+    .footer-platform-intro .footer-title{
         border-left: 1px solid var(--clr-border);
-    }
-
-    .footer-platform-intro li:hover {
-        border-bottom: 1.5px solid var(--clr-border);
     }
 
     .footer-platform-intro li:hover a {
