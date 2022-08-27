@@ -75,6 +75,14 @@ img {
     width: 100%;
     vertical-align: text-top;
 }
+.pawsday-banner{
+    min-height: 180px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    background-image: url(./images/pawsday橫幅底圖\(淡\).png);
+    background-size: 100%;
+}
 .pawsday-btn{
     color: #fff;
     background-color: var(--clr-border);

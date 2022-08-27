@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="./pawsday.css">
     <link rel="stylesheet" href="./css/layout.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/recommend.css">
 
-    <title>Document</title>
+    <title>PawsDay首頁</title>
 </head>
 
 <body>
@@ -33,7 +34,9 @@
                 <div class="header-member col-md-9">
                     <div class="header-item shoppingcart">
                         <a href="">
-                            <i class="fa-solid fa-cart-shopping"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart2" viewBox="0 0 16 16">
+                                <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
+                            </svg>
                         </a>
                     </div>
                     <div class="header-item login">
@@ -42,7 +45,7 @@
                 </div>
                 <div class="menu-button col-2">
                     <label class="menu-button-member">
-                        <i class="fa-solid fa-grip-lines"></i>
+                        <i class="fa-solid fa-bars"></i>
                     </label>
                 </div>
             </div>
@@ -77,16 +80,32 @@
                 <i class="fa-solid fa-angle-right intro-arrow"></i>
             </div>
         </div>
-        <div class="search-area">
+        <div class="search-area pawsday-banner">
             <div class="container">
                 <h2 class="slogan slogan-main">全世界最棒的寵物保母</h2>
                 <h3 class="slogan slogan-vice">專業實名認證寵物保姆到府照顧寵物</h3>
-                <div class="input-group">
-                    <input type="text" class="form-control search-input" placeholder="輸入地區、服務..." aria-label="輸入搜尋字詞"
-                        aria-describedby="button-addon">
-                    <button class="search-btn" type="button" id="button-addon">
+                <div class="search-group">
+                    <input type="text" class="pawsday-input search-input" placeholder="輸入地區、服務..."
+                        aria-label="輸入搜尋字詞" aria-describedby="search-button">
+                    <button class="pawsday-btn search-btn" type="button" id="search-button">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
+                    <div class="searches">
+                        <div class="search-record container">
+                            <p class="">歷史搜尋</p>
+                            <span class="historical-record row">
+                                <a href="" class="col-4">狗</a>
+                            </span>
+                        </div>
+                        <div class="search-record container">
+                            <p>熱門搜尋</p>
+                            <span class="hot-record row">
+                                <a href="" class="col-4">照顧</a>
+                                <a href="" class="col-4">洗澡</a>
+                                <a href="" class="col-4">散步</a>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -131,7 +150,7 @@
             </div>
         </div>
         <div class="container recommend popular-recommend">
-            <h2>熱門推薦</h2>
+            <h2 class="recommend-type">熱門推薦</h2>
             <div class="recommend-container">
                 <div class="row">
                     <div class="col-1">
@@ -360,8 +379,8 @@
                 </div>
             </div>
         </div>
-        <div class="container recommend popular-recommend">
-            <h2>狗狗守護者</h2>
+        <div class="container recommend dog-recommend">
+            <h2 class="recommend-type">狗狗守護者</h2>
             <div class="recommend-container" id="dog-recommend">
                 <div class="row">
                     <div class="col-1">
@@ -590,8 +609,8 @@
                 </div>
             </div>
         </div>
-        <div class="container recommend popular-recommend">
-            <h2>貓貓守護者</h2>
+        <div class="container recommend cat-recommend">
+            <h2 class="recommend-type">貓貓守護者</h2>
             <div class="recommend-container" id="cat-recommend">
                 <div class="row">
                     <div class="col-1">
@@ -608,15 +627,15 @@
                                 <span class="recommend-top">TOP 1</span>
                             </div>
                             <div class="recommend-title">
-                                <h3>阿諭</h3>
-                                <h3>到府照顧</h3>
+                                <h3 id="commodity-title">阿諭</h3>
+                                <h3 id="commodity-service-type">到府照顧</h3>
                                 <span>
                                     <i class="fa-solid fa-shield-cat"></i>
                                     <i class="fa-solid fa-shield-cat"></i>
                                 </span>
                             </div>
                             <div class="recommend-evaluation">
-                                <span>4.8★</span>
+                                <span>4.8<i class="fa-solid fa-star"></i></span>
                                 <span>30+ 已預定</span>
                             </div>
                             <h4 class="recommend-price">TWD 400 起</h4>

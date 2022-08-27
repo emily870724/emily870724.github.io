@@ -33,7 +33,11 @@ a {
 
 .intro-arrow {
     display: none;
-    width: 10px;
+}
+
+.notice .row {
+    position: relative;
+    left: 20px;
 }
 
 @media screen and (max-width:767px) {
@@ -50,14 +54,15 @@ a {
     }
 
     .platform-intro-more {
-        right: 90%;
+        right: 92%;
     }
 
     .intro-arrow {
         display: block;
         position: absolute;
         top: 4px;
-        left: 49%;
+        left: 47%;
+        width: 10px;
         cursor: pointer;
     }
 }
@@ -74,11 +79,6 @@ a {
 .search-area {
     padding: 50px 0;
     background-color: var(--clr-bg-y);
-    display: flex;
-    text-align: center;
-    align-items: center;
-    background-image: url(../images/pawsday橫幅底圖\(淡\).png);
-    background-size: 100%;
 }
 
 .search-area .slogan {
@@ -120,29 +120,6 @@ a {
     max-width: 600px;
 }
 
-.search-input {
-    border-radius: var(--radius);
-    border: 1px solid var(--clr-bg-y);
-    font-size: var(--font);
-}
-
-.search-input:focus {
-    border: 1px solid var(--clr-primary);
-}
-
-.search-btn {
-    width: 60px;
-    color: white;
-    border-radius: var(--radius);
-    background-color: var(--clr-border);
-    border: 1px solid var(--clr-border);
-}
-
-.search-btn:hover,
-.search-btn:focus {
-    background-color: var(--clr-specfont);
-    border: 1px solid var(--clr-specfont);
-}
 
 /* latest-news */
 .latest-news {
@@ -212,186 +189,41 @@ a {
     }
 }
 
-/* recommend */
-.recommend {
-    overflow: hidden;
-    margin-bottom: 20px;
-    position: relative;
-}
 
-.recommend .recommend-container {
-    width: calc(600%);
-    position: relative;
-    right: -1px;
-    transition: 1s;
-}
-
-.recommend .recommend-more {
-    right: calc(100% - 9px);
-}
-
-.recommend .recommend-more-second {
-    right: calc(197%);
-}
-
-.recommend h2 {
-    font-size: 24px;
-    font-weight: 600;
-    padding: 10px;
-}
-
-.recommend .more {
-    top: calc(50% - 12px);
-    right: calc(83.5% - 6px);
-}
-
-.recommend .more-second {
-    right: calc(67% - 15px);
-}
-
-.recommend-image {
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    font-size: 14px;
-    color: #fff;
-}
-
-.recommend img {
-    border-radius: 10px;
-    background-color: var(--clr-bg-y);
-}
-
-.recommend-place {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-.recommend-place h3 {
-    padding: 0 3px;
-}
-
-.recommend-collect {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-.recommend-top {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: var(--clr-border);
-    color: #fff;
-    border-top-right-radius: var(--radius);
-    padding: 0 5px;
-}
-
-@media screen and (min-width:600px) {
-    .recommend .recommend-container {
-        width: 400%;
-        right: -1px;
-    }
-
-    .recommend .recommend-more {
-        right: calc(100% - 15px);
-    }
-
-    .recommend .more {
-        right: calc(75% - 4px);
-    }
-
-    .recommend .more-second {
-        right: calc(300%);
-    }
-}
-
-@media screen and (min-width:768px) {
-    .recommend .recommend-container {
-        width: 295%;
-        right: -1px;
-    }
-
-    .recommend .recommend-more {
-        right: calc(96%);
-    }
-
-    .recommend .more {
-        right: calc(67% - 14px);
-    }
-
-    .recommend .more-second {
-        right: calc(300%);
-    }
-}
-
-.recommend-title {
-    font-size: var(--font);
-    color: var(--crl-font);
-}
-
-.recommend-title h3,
-.recommend-title span {
-    display: inline-block;
-    padding: 0 5px;
-    margin: 3px 0;
-}
-
-.recommend-title h3~h3,
-.recommend-title h3~span {
-    border-left: 1px solid var(--clr-font);
-}
-
-.recommend-evaluation {
-    font-size: 12px;
-    color: var(--clr-bg-g);
-}
-
-.recommend-evaluation span {
-    padding: 0 3px;
-    margin: 3px 0;
-}
-
-.recommend-evaluation span~span {
-    border-left: 1px solid var(--clr-bg-g);
-}
-
-.recommend-price {
-    margin: 8px 3px;
-    font-size: var(--font);
-}
 
 /* choose-us */
-.choose-us{
+.choose-us {
     background-color: var(--clr-primary);
     min-height: 330px;
     margin-top: 80px;
     position: relative;
     padding: 30px 0;
 }
-.choose-us h3{
+
+.choose-us h3 {
     font-size: 24px;
     font-weight: 600;
     padding: 10px 0;
 }
-.choose-us p{
+
+.choose-us p {
     font-size: var(--font);
     padding-bottom: 20px;
 }
-.choose-us img{
+
+.choose-us img {
     position: absolute;
     bottom: 0;
     width: 80%;
     right: 0;
 }
+
 @media screen and (min-width:768px) {
-    .choose-us{
+    .choose-us {
         min-height: 200px;
     }
-    .choose-us img{
+
+    .choose-us img {
         width: 40%;
         right: 10%;
     }
